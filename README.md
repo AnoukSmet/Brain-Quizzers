@@ -1,39 +1,268 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# **Naturazy**
 
-Welcome USER_NAME,
+![Mokeup image](/)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+## **Goal for this project** 
 
-## Gitpod Reminders
+Welcome to my Trivia Game! 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+Thank you for visiting my project!
+If you have any feedback or questions, head over to my GitHub contact details and feel free to reach out to me.
 
-`python3 -m http.server`
+---
+<a></a>
+## Table of contents 
+* [UX](#ux)
+    * [User Goals](#user-goals)
+    * [User Stories](#user-stories)
+    * [Site Owners Goals](#site-owners-goals)
+    * [User Requirements and Expectations](#user-requirements-and-expectations)
+        * [Requirements](#requirements)
+        * [Expectations](#expectations)
+    * [Design Choices](#design-choices)
+        * [Fonts](#fonts)
+        * [Icons](#icons)
+        * [Colors](#colors)
+        * [Structure](#structure)
+* [Wireframes](#wireframes)
+* [Features](#features)
+    * [Existing Features](#existing-features)
+    * [Features to be implemented](#features-to-be-implemented)
+* [Technologies used](#technologies-used)
+    * [Languages](#languages)
+    * [Tools and Libraries](#tools-and-libraries)
+* [Testing](#testing)
+* [Deployment](#deployment)
+* [Credits](#credits)
 
-A blue button should appear to click: *Make Public*,
 
-Another blue button should appear to click: *Open Browser*.
+<a name="ux"></a>
+## **UX**
+<a></a>
+### **User Goals**
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+* 
 
-A blue button should appear to click: *Make Public*,
+[Back to Top](#table-of-contents)
 
-Another blue button should appear to click: *Open Browser*.
+<a></a>
+### **User Stories**
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+*
+*
+*
+*
 
-## Updates Since The Instructional Video
+1. 
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
+1.  
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+1. 
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+1. 
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+<a></a>
+### **Site owners Goals**
+* 
+*
+*
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
 
---------
+[Back to Top](#table-of-contents)
 
-Happy coding!
+<a></a>
+### **User Requirements and Expectations**
+<a></a>
+#### Requirements
+*
+*
+*
+*
+
+
+<a></a>
+#### Expectations
+* 
+*
+*
+*
+
+
+[Back to Top](#table-of-contents)
+
+<a></a>
+### **Design Choices**
+
+I have used [Coolors](https://coolors.co/ "Coolors.co") to come up with a color scheme that ...
+
+<a></a>
+#### Fonts
+In order to find appropriate fonts for my website, I have visited [Google Fonts](https://fonts.google.com/ "Google Fonts") to explore the various options.
+
+<a></a>
+#### Icons
+
+
+<a></a>
+#### Colors
+
+You can view my color scheme [here](https://colorhunt.co/palette/193637).
+Below I will explain more why I choose the various colors and for what I will be using them.
+
+![Color Scheme](wireframes/color-scheme.png)
+
+*
+*
+*
+
+I have used to contract checker on Coolors in order to make sure that the contract is sufficient.
+This way my content will be easily readable. 
+
+<a></a>
+#### Structure
+I have chosen to use [Bootstrap](https://getbootstrap.com/) to create an overall structure for my website. 
+Bootstrap provides various elements of CSS and Javascript which is very helpful to keep a good structure on your page. 
+As Bootstrap is designed for mobile first, I will be certain that my website functions well on mobile.
+
+[Back to Top](#table-of-contents)
+
+--- 
+<a></a>
+## **Wireframes**
+I have decided to use [Balsamic](https://balsamiq.com/wireframes/) to create wireframes for my website. 
+First I created a basic wireframe for desktop and later on for tablet and mobile. 
+
+
+You can find my wireframes below:
+
+### Desktop Wireframe
+
+![Desktop Wireframe](wireframes/desktop-wireframe.png)
+
+### Tablet Wireframe
+
+![Tablet Wireframe](wireframes/tablet-wireframe.png)
+
+### Mobile Wireframe
+
+![Mobile Wireframe](wireframes/mobile-wireframe.png)
+
+[Back to Top](#table-of-contents)
+
+---
+
+<a></a>
+## **Features**
+<a></a>
+### **Existing Features**
+
+#### Navigation
+
+
+#### Hero Image
+
+
+#### Welcome Section
+
+
+#### Tree Houses Section
+
+
+<a></a>
+### **Features to be implemented**
+
+* 
+*
+*
+*
+
+
+[Back to Top](#table-of-contents)
+
+<a></a>
+## **Technologies used**
+<a></a>
+### **Languages**
+
+* [HTML](https://en.wikipedia.org/wiki/HTML)
+* [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+
+<a></a>
+### **Tools and Libraries**
+
+* [Font Awesome](https://fontawesome.com/)
+* [Bootstrap](https://getbootstrap.com/)
+* [Google Fonts](https://fonts.google.com/)
+* [GitHub](https://github.com/)
+* [Balsamic](https://balsamiq.com/wireframes/)
+* [W3C HTML Validation Service](https://validator.w3.org/)
+* [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
+* [Tiny PNG](https://tinypng.com/)
+* [techsini](http://techsini.com/)
+
+[Back to Top](#table-of-contents)
+
+<a></a>
+## **Testing**
+
+### Navigation bar
+
+* Plan  
+
+
+* Implementation  
+Bootstrap to implement the hamburger sign for mobile devices. 
+
+* Test  
+
+* Result  
+
+* Verdict  
+
+
+[Back to Top](#table-of-contents)
+
+### Bugs
+
+XXX
+
+* Bug  
+
+* Fix      
+
+* Verdict  
+
+[Back to Top](#table-of-contents)
+
+<a></a>
+## **Deployment**
+
+This project was deployed via GitHub by executing the following steps.
+After writing the code, committing and pushing it to GitHub:
+
+1. Navigate to the repository on github and click **Settings**.
+1. From there, go to the **Source section** within the Github Pages section.
+1. Select **master branch** on the dropdown menu, and click save.
+1. Now the website is live on **https://anouksmet.github.io/XXX/**
+1. Any time commits and pushes are sent to Github, the Github Pages site should update shortly after.
+
+To run the project locally:
+
+1. Click the **green Clone or Download button** on the Github Repository
+1. Using the **Clone with HTTPS option**, copy the link displayed.
+1. Open your IDE, and ensure the Git Terminal is open.
+1. Change the working directory to the location where the cloned directory is to go.
+1. Use the **"git clone" command** and paste the url copied in the second step.
+
+
+[Back to Top](#table-of-contents)
+
+<a></a>
+## **Credits**
+
+### Content - Media - Inspiration
+
+### Acknowledgements
+
+[Back to Top](#table-of-contents)
