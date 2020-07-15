@@ -44,25 +44,17 @@ If you have any feedback or questions, head over to my GitHub contact details an
 <a></a>
 ### **User Goals**
 
-* 
+* The games has to be responsive on various devices like tablets, phones and desktops
+* The option to choose the category the user would like to play
+* To be able to compare your high score with other players and save it when you're in the top
+* Visually appealing website 
+* During the game to track your score and how many questions are left in the game. 
 
 [Back to Top](#table-of-contents)
 
 <a></a>
 ### **User Stories**
 
-*
-*
-*
-*
-
-1. 
-
-1.  
-
-1. 
-
-1. 
 
 <a></a>
 ### **Site owners Goals**
