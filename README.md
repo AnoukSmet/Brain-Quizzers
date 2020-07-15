@@ -6,6 +6,9 @@
 
 Welcome to my Trivia Game! 
 
+Are you looking to test your general knowledge about entertainment, science, sports and so? 
+Then you are in the perfect place! Get started and you might still even learn a thing or two!
+
 Thank you for visiting my project!
 If you have any feedback or questions, head over to my GitHub contact details and feel free to reach out to me.
 
