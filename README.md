@@ -6,7 +6,7 @@
 
 Welcome to my Trivia Game! 
 
-Are you looking to test your general knowledge about entertainment, science, sports and so? 
+Are you looking to test your general knowledge about entertainment, science, sports and so on? 
 Then you are in the perfect place! Get started and you might still even learn a thing or two!
 
 Thank you for visiting my project!
@@ -73,29 +73,13 @@ I just want to be able to play the game, check my score and play again and again
 
 <a></a>
 ### **Site owners Goals**
-* 
-*
-*
+* To have an appealing website where users want to go to play Trivia
+* For people to leave their name when they reached a highscore for some competitiveness
 
 
 [Back to Top](#table-of-contents)
 
 <a></a>
-### **User Requirements and Expectations**
-<a></a>
-#### Requirements
-*
-*
-*
-*
-
-
-<a></a>
-#### Expectations
-* 
-*
-*
-*
 
 
 [Back to Top](#table-of-contents)
