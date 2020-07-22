@@ -89,6 +89,13 @@ I just want to be able to play the game, check my score and play again and again
 * Validate the correct answer
 * Keep the score of the user playing
 
+<a></a>
+#### Expectations
+* When a certain category is chosen, that the correct questions appear
+* Feedback to the users where in the game they are and total amount of questions
+* To let the user know if their answer was correct or false
+* To show the final result after playing
+* Being able to add your result to the highscores
 
 
 
@@ -97,7 +104,8 @@ I just want to be able to play the game, check my score and play again and again
 <a></a>
 ### **Design Choices**
 
-I have used [Coolors](https://coolors.co/ "Coolors.co") to come up with a color scheme that ...
+I have used [Coolors](https://coolors.co/ "Coolors.co") to come up with a color scheme that matches the atmosphere of a playful Trivia Game.
+For this website I have deciced to keep design simple but playful in order to not take the attention away from the game.
 
 <a></a>
 #### Fonts
