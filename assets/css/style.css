@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Playfair+Display&display=swap');
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: #54455F;
+    color: #FCF3EE;
+    font-family: "Playfair Display", sans-serif;
+    font-size: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Title */
+
+#page-title {
+    text-align: center;
+    margin-top: 5rem;
+    font-size: 6rem;
+    font-family: "Kalam", sans-serif;
+}
+
+/* Category section */
+
+#category-title {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 3rem;
+}
+
+#categories {
+    width: 25rem;
+    float: center;
+    background-color: #7C3C4A;
+    margin-top: 3rem;
+    margin-left: 57rem;
+}
+
+/* Buttons */
+
+#buttons {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+#buttons a {
+    border: 1rem solid #7C3C4A;
+    text-decoration: none;
+    color: #FCF3EE;
+    background-color: #7C3C4A;
+    margin: 1rem;
+    
+}
