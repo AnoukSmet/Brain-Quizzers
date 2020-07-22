@@ -150,15 +150,27 @@ First I created a basic wireframe for desktop and later on for tablet and mobile
 
 You can find my wireframes below:
 
-### Desktop Wireframe
+### Desktop Wireframe: Homepage
 
 ![Desktop Wireframe](wireframes/desktop-wireframe.png)
 
-### Tablet Wireframe
+### Desktop Wireframe: Game
+
+![Desktop Wireframe](wireframes/desktop-wireframe.png)
+
+### Tablet Wireframe: Homepage
 
 ![Tablet Wireframe](wireframes/tablet-wireframe.png)
 
-### Mobile Wireframe
+### Tablet Wireframe: Game
+
+![Tablet Wireframe](wireframes/tablet-wireframe.png)
+
+### Mobile Wireframe: Homepage
+
+![Mobile Wireframe](wireframes/mobile-wireframe.png)
+
+### Mobile Wireframe: Homepage
 
 ![Mobile Wireframe](wireframes/mobile-wireframe.png)
 
@@ -171,16 +183,7 @@ You can find my wireframes below:
 <a></a>
 ### **Existing Features**
 
-#### Navigation
-
-
-#### Hero Image
-
-
-#### Welcome Section
-
-
-#### Tree Houses Section
+#### XXX
 
 
 <a></a>
@@ -225,9 +228,7 @@ You can find my wireframes below:
 
 * Plan  
 
-
 * Implementation  
-Bootstrap to implement the hamburger sign for mobile devices. 
 
 * Test  
 
