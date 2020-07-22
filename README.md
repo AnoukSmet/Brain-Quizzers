@@ -80,6 +80,16 @@ I just want to be able to play the game, check my score and play again and again
 [Back to Top](#table-of-contents)
 
 <a></a>
+### **User Requirements and Expectations**
+<a></a>
+#### Requirements
+* Easy to navigate by using the few buttons
+* Appealing homepage
+* Easy way to pick your category and start the game
+* Validate the correct answer
+* Keep the score of the user playing
+
+
 
 
 [Back to Top](#table-of-contents)
