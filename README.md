@@ -114,7 +114,24 @@ For the title of my game, I have used the font [Kalam](https://fonts.google.com/
 and for the main text I have used [Playfair Display](https://fonts.google.com/specimen/Playfair+Display?query=playfair "Playfair Display"). 
 The title is a handwritten fonts that give a more personal and playful feeling.
 
+<a></a>
+#### Icons
+I will use some icons for the buttons but I will make sure that the icons are self-explanatory so it doesn't confuse the user.
 
+<a></a>
+#### Colors
+
+Like I mentioned before, I have decided to use some colors that fit well with the feeling of a game.
+Below I will explain more why I choose the various colors and for what I will be using them.
+
+![Color Scheme](wireframes/color-scheme.png)
+
+* #54455F: This purple color I will use as a background for all the different pages on the website. 
+* #7C3C4A: This pink / red color I will use to highlight the buttons on the page. 
+* #FCF3EE: This will be my text color for the overall website.
+
+I have used to contract checker on Coolors in order to make sure that the contract is sufficient.
+This way my content will be easily readable. 
 
 <a></a>
 #### Structure
