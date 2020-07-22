@@ -110,25 +110,11 @@ For this website I have deciced to keep design simple but playful in order to no
 <a></a>
 #### Fonts
 In order to find appropriate fonts for my website, I have visited [Google Fonts](https://fonts.google.com/ "Google Fonts") to explore the various options.
+For the title of my game, I have used the font [Kalam](https://fonts.google.com/specimen/Kalam?query=kalam "Kalam") 
+and for the main text I have used [Playfair Display](https://fonts.google.com/specimen/Playfair+Display?query=playfair "Playfair Display"). 
+The title is a handwritten fonts that give a more personal and playful feeling.
 
-<a></a>
-#### Icons
 
-
-<a></a>
-#### Colors
-
-You can view my color scheme [here](https://colorhunt.co/palette/193637).
-Below I will explain more why I choose the various colors and for what I will be using them.
-
-![Color Scheme](wireframes/color-scheme.png)
-
-*
-*
-*
-
-I have used to contract checker on Coolors in order to make sure that the contract is sufficient.
-This way my content will be easily readable. 
 
 <a></a>
 #### Structure
