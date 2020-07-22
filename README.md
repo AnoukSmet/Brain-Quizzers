@@ -124,7 +124,7 @@ I will use some icons for the buttons but I will make sure that the icons are se
 Like I mentioned before, I have decided to use some colors that fit well with the feeling of a game.
 Below I will explain more why I choose the various colors and for what I will be using them.
 
-![Color Scheme](wireframes/color-scheme.png)
+![Color Palette](wireframes/color-palette.png)
 
 * #54455F: This purple color I will use as a background for all the different pages on the website. 
 * #7C3C4A: This pink / red color I will use to highlight the buttons on the page. 
