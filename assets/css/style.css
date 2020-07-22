@@ -31,12 +31,14 @@ body {
     font-size: 3rem;
 }
 
-#categories {
-    width: 25rem;
-    float: center;
+
+#category {
+    width: 30rem;
     background-color: #7C3C4A;
-    margin-top: 3rem;
-    margin-left: 57rem;
+    color: #FCF3EE;
+    display: block;
+    margin: 3rem auto;
+
 }
 
 /* Buttons */
