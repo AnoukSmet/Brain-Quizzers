@@ -38,8 +38,12 @@ fetch(`https://opentdb.com/api.php?amount=10&category=9`).then(res => res.json()
         formattedQuestion["choice", (index + 1)] = choice;
     });
 
+    return formattedQuestion;
     })
-
+    startGame();
+})
+.catch((err) => {
+    console.error(err);
 });
 
 startGame = () => {
@@ -49,9 +53,4 @@ startGame = () => {
         console.log(availableQuestions);
     }
 
-startGame();
-
-
-
-
-
+startGame()
