@@ -39,7 +39,7 @@ fetch(`https://opentdb.com/api.php?amount=10&category=9&type=multiple`).then(res
     answerChoices.splice(formattedQuestion.answer -1, 0, fetchedQuestion.correct_answer);
 
     answerChoices.forEach((choice, index) => {
-        formattedQuestion["choice", (index + 1)] = choice ;
+        formattedQuestion["choice" + (index + 1)] = choice ;
     });
 
     return formattedQuestion;
@@ -54,7 +54,6 @@ startGame = () => {
         questionCounter = 0;
         score = 0;
         availableQuestions = questions[i];
-        console.log(availableQuestions);
         fetchNewQuestion();
     };
 
@@ -63,15 +62,12 @@ fetchNewQuestion = () => {
     i++;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     displayedQuestion = availableQuestions[questionIndex];
-
-    console.log(availableQuestions);
     question.innerText = availableQuestions.question;
 
-    choices.forEach(choice => {
-        for(var j = 1 ; j < 5 ; j++) {
-        availableAnswers = availableQuestions[j];
-        console.log(availableAnswers);
-        
-        };
-    });
+    choices.forEach( choice => {
+			const number = choice.dataset[ 'number' ];
+			choice.innerHTML = availableQuestions[ 'choice' + number ];
+        } );
+		availableQuestions.splice(questionIndex, 1 );
 };
+
