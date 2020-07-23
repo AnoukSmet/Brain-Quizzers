@@ -1,13 +1,14 @@
 /* Fetching categories from API */
 
 const categorySelection = $('#category');
-const question = $('#question');
-const choices = $('.choices');
+const question = document.getElementById('question');
+let choices = Array.from(document.getElementsByClassName('choices'));
 let questionCounter = 0;
 let score = 0;
 let availableQuestions = [];
 let displayedQuestion = {};
 let acceptingAnswers = false;
+let i = 0;
 
 let questions = [];
 
@@ -27,7 +28,7 @@ fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data 
 /* Fetching questions from API */ 
 
 
-fetch(`https://opentdb.com/api.php?amount=10&category=9`).then(res => res.json()).then(fetchedQuestions => {
+fetch(`https://opentdb.com/api.php?amount=10&category=9&type=multiple`).then(res => res.json()).then(fetchedQuestions => {
      questions = fetchedQuestions.results.map(fetchedQuestion => {
         const formattedQuestion = {
             question : fetchedQuestion.question,
@@ -38,7 +39,7 @@ fetch(`https://opentdb.com/api.php?amount=10&category=9`).then(res => res.json()
     answerChoices.splice(formattedQuestion.answer -1, 0, fetchedQuestion.correct_answer);
 
     answerChoices.forEach((choice, index) => {
-        formattedQuestion["choice", (index + 1)] = choice;
+        formattedQuestion["choice", (index + 1)] = choice ;
     });
 
     return formattedQuestion;
@@ -52,17 +53,25 @@ fetch(`https://opentdb.com/api.php?amount=10&category=9`).then(res => res.json()
 startGame = () => {
         questionCounter = 0;
         score = 0;
-        availableQuestions = questions;
+        availableQuestions = questions[i];
         console.log(availableQuestions);
         fetchNewQuestion();
     };
 
 fetchNewQuestion = () => {
     questionCounter++;
-
+    i++;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     displayedQuestion = availableQuestions[questionIndex];
-    question.innerText = displayedQuestion;
-};
 
-startGame();
+    console.log(availableQuestions);
+    question.innerText = availableQuestions.question;
+
+    choices.forEach(choice => {
+        for(var j = 1 ; j < 5 ; j++) {
+        availableAnswers = availableQuestions[j];
+        console.log(availableAnswers);
+        
+        };
+    });
+};
