@@ -2,9 +2,12 @@
 
 const categorySelection = $('#category');
 const question = $('#question');
+const choices = $('.choices');
 let questionCounter = 0;
 let score = 0;
 let availableQuestions = [];
+let displayedQuestion = {};
+let acceptingAnswers = false;
 
 let questions = [];
 
@@ -24,15 +27,15 @@ fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data 
 /* Fetching questions from API */ 
 
 
-fetch(`https://opentdb.com/api.php?amount=10&category=9`).then(res => res.json()).then(loadedQuestions => {
-     questions = loadedQuestions.results.map(loadedQuestion => {
+fetch(`https://opentdb.com/api.php?amount=10&category=9`).then(res => res.json()).then(fetchedQuestions => {
+     questions = fetchedQuestions.results.map(fetchedQuestion => {
         const formattedQuestion = {
-            question: loadedQuestion.question,
+            question : fetchedQuestion.question,
         };
 
-    const answerChoices = [ ... loadedQuestion.incorrect_answers];
+    const answerChoices = [ ... fetchedQuestion.incorrect_answers];
     formattedQuestion.answer = Math.floor(Math.random() * 3 ) + 1;
-    answerChoices.splice(formattedQuestion.answer -1, 0, loadedQuestion.correct_answer);
+    answerChoices.splice(formattedQuestion.answer -1, 0, fetchedQuestion.correct_answer);
 
     answerChoices.forEach((choice, index) => {
         formattedQuestion["choice", (index + 1)] = choice;
@@ -49,8 +52,17 @@ fetch(`https://opentdb.com/api.php?amount=10&category=9`).then(res => res.json()
 startGame = () => {
         questionCounter = 0;
         score = 0;
-        availableQuestions = [... questions];
+        availableQuestions = questions;
         console.log(availableQuestions);
-    }
+        fetchNewQuestion();
+    };
 
-startGame()
+fetchNewQuestion = () => {
+    questionCounter++;
+
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    displayedQuestion = availableQuestions[questionIndex];
+    question.innerText = displayedQuestion;
+};
+
+startGame();
