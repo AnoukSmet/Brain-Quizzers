@@ -7,7 +7,6 @@ let questionCounter = 0;
 let score = 0;
 let availableQuestions = [];
 let displayedQuestion = {};
-let i = 0;
 
 let questions = [];
 
@@ -43,40 +42,44 @@ const fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=9&type=m
 
     return formattedQuestion;
     });
-    startGame()
+    startGame();
+    
 })
 .catch(err => {
     console.error(err);
 });
 
-
 startGame = () => {
         questionCounter = 0;
         score = 0;
-        availableQuestions = questions[i];
+        availableQuestions = [... questions];
         fetchNewQuestion();
     };
 
-fetchNewQuestion = () => {
+    fetchNewQuestion = () => {
     questionCounter++;
-    i++;
-    currentQuestion = availableQuestions.question
-    question.innerText = currentQuestion ;
+    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+    currentQuestion = availableQuestions[questionIndex];
+    question.innerText = currentQuestion.question;
+    
 
-    choices.forEach( choice => {
+    choices.forEach((choice) => {
 			const number = choice.dataset[ 'number' ];
-            optionChoices = availableQuestions[ 'choice' + number ];
-            choice.innerHTML = optionChoices;
-            formattedChoices = optionChoices.split();
-        } );
-        formattedChoices.splice(currentQuestion);
+            choice.innerText = currentQuestion['choice' + number];
+        });
+
+        availableQuestions.splice(questionIndex, 1);
+    
 };
 
 choices.forEach((choice) => {
     choice.addEventListener("click", event => {
     const clickedChoice = event.target;
     const clickedAnswer = clickedChoice.dataset['number'];
-    fetchNewQuestion()
+    setTimeout( () => {
+        fetchNewQuestion();
+    }, 1000);
+    
        });
 });
 
