@@ -91,18 +91,17 @@ body {
 /* Validating answers */
 
 .correct {
-    background-color: green;
+    background-color: #3b614363;
+    border-color: #3b614363;
 }
 
-.red {
-    background-color: red;
+.incorrect {
+    background-color: #671224;
+    border-color: #671224;
 }
 
 #wrong-answer-feedback {
     text-align: center;
     background-color: #7C3C4A;
-}
-
-.show {
-    display: block;
+    margin: 3rem;
 }

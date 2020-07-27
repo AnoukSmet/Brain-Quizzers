@@ -15,15 +15,16 @@ const pointsCorrectAnswer = 5;
 const maximumQuestions = 10;
 
 
-// fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data => {
-//     const categories = data.trivia_categories;
+fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data => {
+    const categories = data.trivia_categories;
 
-//     categories.forEach(category => {
-//         let optionField = `<option value="${category.id}">${category.name}</option>`;
-//         categorySelection.append(optionField);
-//     });
+    categories.forEach(category => {
+        let optionField = `<option value="${category.id}">${category.name}</option>`;
+        categorySelection.append(optionField);
+    
+    });
 
-// });
+});
 
 /* Fetching questions from API */ 
 
@@ -43,6 +44,7 @@ const fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=9&type=m
     });
 
     return formattedQuestion;
+
     });
     startGame();
     
@@ -82,20 +84,20 @@ choices.forEach((choice) => {
 
     if (clickedAnswer == currentQuestion.answer) {
         clickedChoice.classList.add('correct');
+        setTimeout ( () => {
+            clickedChoice.classList.remove('correct');
+            fetchNewQuestion();}, 1000);
+            
     } else {
-        clickedChoice.classList.add('red');
+        clickedChoice.classList.add('incorrect');
         feedbackMessage.classList.add('show')
         const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
         feedbackMessage.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
+        setTimeout ( () => {
+            clickedChoice.classList.remove('incorrect');
+            feedbackMessage.innerText = "";
+            fetchNewQuestion();}, 3000);
     };
-
-    setTimeout( () => {
-        clickedChoice.classList.remove('correct');
-        clickedChoice.classList.remove('red');
-        feedbackMessage.innerText = "";
-        fetchNewQuestion();
-    }, 3000);
-    
        });
 });
 
