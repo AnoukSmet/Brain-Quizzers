@@ -2,6 +2,7 @@
 
 const categorySelection = $('#category');
 const question = document.getElementById('question');
+const feedbackMessage = document.getElementById('wrong-answer-feedback');
 let choices = Array.from(document.getElementsByClassName('choices'));
 let questionCounter = 0;
 let score = 0;
@@ -83,14 +84,17 @@ choices.forEach((choice) => {
         clickedChoice.classList.add('correct');
     } else {
         clickedChoice.classList.add('red');
-        console.log(currentQuestion['choice' + currentQuestion.answer])
+        feedbackMessage.classList.add('show')
+        const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
+        feedbackMessage.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
     };
 
     setTimeout( () => {
         clickedChoice.classList.remove('correct');
         clickedChoice.classList.remove('red');
+        feedbackMessage.innerText = "";
         fetchNewQuestion();
-    }, 1000);
+    }, 3000);
     
        });
 });

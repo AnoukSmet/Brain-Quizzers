@@ -80,12 +80,12 @@ body {
 
 #left {
     float: left;
-    margin-left: 20rem;
+    margin-left: 19rem;
 }
 
 #right {
     float: right;
-    margin-right: 20rem;
+    margin-right: 19rem;
 }
 
 /* Validating answers */
@@ -96,4 +96,13 @@ body {
 
 .red {
     background-color: red;
+}
+
+#wrong-answer-feedback {
+    text-align: center;
+    background-color: #7C3C4A;
+}
+
+.show {
+    display: block;
 }
