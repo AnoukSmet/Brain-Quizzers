@@ -43,16 +43,47 @@ body {
 
 /* Buttons */
 
-#buttons {
+.buttons {
     text-align: center;
     margin-top: 5rem;
 }
 
-#buttons a {
+.buttons a {
     border: 1rem solid #7C3C4A;
     text-decoration: none;
     color: #FCF3EE;
     background-color: #7C3C4A;
     margin: 1rem;
     
+}
+
+/* choices */
+
+#question {
+    text-align: center;
+    background-color: #7C3C4A;
+    margin: 3rem;
+    padding-top: 1rem;
+    height: 5rem;
+}
+
+.choices {
+    border: 2px solid #7C3C4A;
+    background-color: #7C3C4A;
+    width: 30rem;
+    height: 10rem;
+    text-align: center;
+    display: block;
+    margin: 3rem auto;
+    line-height: 10rem;
+}
+
+#left {
+    float: left;
+    margin-left: 20rem;
+}
+
+#right {
+    float: right;
+    margin-right: 20rem;
 }
