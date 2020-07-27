@@ -87,3 +87,13 @@ body {
     float: right;
     margin-right: 20rem;
 }
+
+/* Validating answers */
+
+.correct {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}

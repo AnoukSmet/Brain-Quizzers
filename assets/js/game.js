@@ -13,6 +13,7 @@ let questions = [];
 const pointsCorrectAnswer = 5;
 const maximumQuestions = 10;
 
+
 // fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data => {
 //     const categories = data.trivia_categories;
 
@@ -28,7 +29,7 @@ const maximumQuestions = 10;
 
 const fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=9&type=multiple`).then( res => res.json() ).then(fetchedAPIQuestions => {
      questions = fetchedAPIQuestions.results.map(fetchedQuestion => {
-        const formattedQuestion = {
+        formattedQuestion = {
             question : fetchedQuestion.question,
         };
 
@@ -66,6 +67,7 @@ startGame = () => {
     choices.forEach((choice) => {
 			const number = choice.dataset[ 'number' ];
             choice.innerText = currentQuestion['choice' + number];
+            // console.log(currentQuestion['choice' + 2]);
         });
 
         availableQuestions.splice(questionIndex, 1);
@@ -76,7 +78,17 @@ choices.forEach((choice) => {
     choice.addEventListener("click", event => {
     const clickedChoice = event.target;
     const clickedAnswer = clickedChoice.dataset['number'];
+
+    if (clickedAnswer == currentQuestion.answer) {
+        clickedChoice.classList.add('correct');
+    } else {
+        clickedChoice.classList.add('red');
+        console.log(currentQuestion['choice' + currentQuestion.answer])
+    };
+
     setTimeout( () => {
+        clickedChoice.classList.remove('correct');
+        clickedChoice.classList.remove('red');
         fetchNewQuestion();
     }, 1000);
     
