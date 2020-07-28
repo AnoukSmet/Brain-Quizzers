@@ -22,16 +22,20 @@ fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data 
     const categories = data.trivia_categories;
 
     categories.forEach(category => {
-        let optionField = `<option value="${category.id}">${category.name}</option>`;
-        categorySelection.append(optionField);
-
+        // let optionField = `<option value="${category.id}">${category.name}</option>`;
+       optionField = categorySelection.append($('<option>').val(category.id).text(category.name));
+    
+    
+        // var strUser = categorySelection.options[categorySelection.selectedIndex].value;
+        // console.log(strUser);
     });
 });
+
 
 /* Fetching questions from API */ 
 
 
-const fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=9&type=multiple`).then( res => res.json() ).then(fetchedAPIQuestions => {
+const fetchData = fetch(`https://opentdb.com/api.php?amount=10&${categoryId}&type=multiple`).then( res => res.json() ).then(fetchedAPIQuestions => {
      questions = fetchedAPIQuestions.results.map(fetchedQuestion => {
         formattedQuestion = {
             question : fetchedQuestion.question,
@@ -109,4 +113,4 @@ choices.forEach((choice) => {
 increaseScore = num => {
     score += num
     scoreRef.innerText = score;
-}
+};
