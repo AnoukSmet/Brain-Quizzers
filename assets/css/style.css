@@ -62,7 +62,7 @@ body {
 #question {
     text-align: center;
     background-color: #7C3C4A;
-    margin: 3rem;
+    margin: 3rem 0;
     padding-top: 1rem;
     height: 5rem;
 }
@@ -104,4 +104,26 @@ body {
     text-align: center;
     background-color: #7C3C4A;
     margin: 3rem;
+}
+
+/* Question counter & scores */
+
+#score-container {
+    background-color: #7C3C4A;
+    float: left;
+    margin-left: 38rem;
+    width: 17rem;
+    height: 5rem;
+    line-height: 3rem;
+    padding: 1rem;
+}
+
+#question-container {
+    background-color: #7C3C4A;
+    float: right;
+    margin-right: 38rem;
+    width: 17rem;
+    height: 5rem;
+    line-height: 3rem;
+    padding: 1rem;
 }

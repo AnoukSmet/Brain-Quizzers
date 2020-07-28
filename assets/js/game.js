@@ -4,10 +4,13 @@ const categorySelection = $('#category');
 const question = document.getElementById('question');
 const feedbackMessage = document.getElementById('wrong-answer-feedback');
 let choices = Array.from(document.getElementsByClassName('choices'));
+const questionCounterRef = document.getElementById('questionCounter');
 let questionCounter = 0;
+const scoreRef = document.getElementById('score');
 let score = 0;
 let availableQuestions = [];
 let displayedQuestion = {};
+let categoryId;
 
 let questions = [];
 
@@ -21,9 +24,8 @@ fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data 
     categories.forEach(category => {
         let optionField = `<option value="${category.id}">${category.name}</option>`;
         categorySelection.append(optionField);
-    
-    });
 
+    });
 });
 
 /* Fetching questions from API */ 
@@ -56,12 +58,14 @@ const fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=9&type=m
 startGame = () => {
         questionCounter = 0;
         score = 0;
+        scoreRef.innerText = score;
         availableQuestions = [... questions];
         fetchNewQuestion();
     };
 
     fetchNewQuestion = () => {
     questionCounter++;
+    questionCounterRef.innerText = questionCounter + " / " + maximumQuestions;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -84,6 +88,7 @@ choices.forEach((choice) => {
 
     if (clickedAnswer == currentQuestion.answer) {
         clickedChoice.classList.add('correct');
+        increaseScore(pointsCorrectAnswer);
         setTimeout ( () => {
             clickedChoice.classList.remove('correct');
             fetchNewQuestion();}, 1000);
@@ -101,4 +106,7 @@ choices.forEach((choice) => {
        });
 });
 
-
+increaseScore = num => {
+    score += num
+    scoreRef.innerText = score;
+}
