@@ -87,7 +87,8 @@ startGame = () => {
         if (availableQuestions == 0) {
             game.classList.add('hide');
             endscreen.classList.remove('hide');
-            endscore.innerText = score;
+            const maximumScore = maximumQuestions * pointsCorrectAnswer
+            endscore.innerText = score + " / " + maximumScore;
             if (score == (maximumQuestions * pointsCorrectAnswer)) {
                 endmessage.innerText = "Congratulations, perfect score!";
             } else if (score >= ((maximumQuestions / 2) * pointsCorrectAnswer)) {
@@ -97,15 +98,14 @@ startGame = () => {
             } else {
                 endmessage.innerText = "Please go hit the books!";
             };
-
-        }
+        } else {
 
     questionCounter++;
     questionCounterRef.innerText = questionCounter + " / " + maximumQuestions;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
-    question.innerText = currentQuestion.question;
-    
+    question.innerText = currentQuestion.question;   
+ 
 
     choices.forEach((choice) => {
 			const number = choice.dataset[ 'number' ];
@@ -115,9 +115,11 @@ startGame = () => {
 
         availableQuestions.splice(questionIndex, 1);
     
+}
 };
 
 choices.forEach((choice) => {
+
     choice.addEventListener("click", event => {
     const clickedChoice = event.target;
     const clickedAnswer = clickedChoice.dataset['number'];
@@ -131,11 +133,12 @@ choices.forEach((choice) => {
             
     } else {
         clickedChoice.classList.add('incorrect');
-        feedbackMessage.classList.add('show')
+        feedbackMessage.classList.add('show');
         const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
         feedbackMessage.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
         setTimeout ( () => {
             clickedChoice.classList.remove('incorrect');
+            feedbackMessage.classList.remove('show');
             feedbackMessage.innerText = "";
             fetchNewQuestion();}, 3000);
     };
