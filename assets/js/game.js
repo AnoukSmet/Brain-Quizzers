@@ -5,11 +5,15 @@ const question = document.getElementById('question');
 const feedbackMessage = document.getElementById('wrong-answer-feedback');
 let choices = Array.from(document.getElementsByClassName('choices'));
 const questionCounterRef = document.getElementById('questionCounter');
+const game = document.getElementById('game');
+const welcome = document.getElementById('welcome');
 let questionCounter = 0;
 const scoreRef = document.getElementById('score');
 let score = 0;
 let availableQuestions = [];
 let displayedQuestion = {};
+let categoryOptions;
+const startButton = document.getElementById('submitCategory');
 let categoryId;
 
 let questions = [];
@@ -22,20 +26,33 @@ fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data 
     const categories = data.trivia_categories;
 
     categories.forEach(category => {
-        // let optionField = `<option value="${category.id}">${category.name}</option>`;
-       optionField = categorySelection.append($('<option>').val(category.id).text(category.name));
-    
-    
-        // var strUser = categorySelection.options[categorySelection.selectedIndex].value;
-        // console.log(strUser);
-    });
+        let optionField = `<option value="${category.id}">${category.name}</option>`;
+        categorySelection.append(optionField);
+        // let categoryName = category.name;
+        // let categoryId = category.id;
+        // categoryOptions = categorySelection.append(`<option value="${category.id}">${category.name}</option>`);
+        // console.log(categoryOptions.val());
+});
+});
+
+console.log(startButton);
+
+startButton.addEventListener('click', ()  => {
+    categoryChosen =  $("#category option:selected").val(); 
+    categoryId = parseInt(categoryChosen);
+    game.classList.remove('hide');
+    welcome.classList.add('hide');
+    console.log(categoryId);
 });
 
 
+        // var strUser = categorySelection.options[categorySelection.selectedIndex].value;
+        // console.log(strUser);
+    
 /* Fetching questions from API */ 
 
-
-const fetchData = fetch(`https://opentdb.com/api.php?amount=10&${categoryId}&type=multiple`).then( res => res.json() ).then(fetchedAPIQuestions => {
+console.log(categoryId);
+fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`).then( res => res.json() ).then(fetchedAPIQuestions => {
      questions = fetchedAPIQuestions.results.map(fetchedQuestion => {
         formattedQuestion = {
             question : fetchedQuestion.question,

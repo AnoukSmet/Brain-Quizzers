@@ -127,3 +127,7 @@ body {
     line-height: 3rem;
     padding: 1rem;
 }
+
+.hide {
+    display: none;
+}
