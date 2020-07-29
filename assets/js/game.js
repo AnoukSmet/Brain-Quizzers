@@ -43,11 +43,6 @@ startButton.addEventListener('click', ()  => {
     game.classList.remove('hide');
     welcome.classList.add('hide');
     console.log(categoryId);
-});
-
-
-        // var strUser = categorySelection.options[categorySelection.selectedIndex].value;
-        // console.log(strUser);
     
 /* Fetching questions from API */ 
 
@@ -74,6 +69,7 @@ fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=${categoryId}&
 })
 .catch(err => {
     console.error(err);
+});
 });
 
 startGame = () => {

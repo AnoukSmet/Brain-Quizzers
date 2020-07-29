@@ -16,7 +16,7 @@ body {
 
 /* Title */
 
-#page-title {
+.page-title {
     text-align: center;
     margin-top: 5rem;
     font-size: 6rem;
