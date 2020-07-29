@@ -7,6 +7,9 @@ let choices = Array.from(document.getElementsByClassName('choices'));
 const questionCounterRef = document.getElementById('questionCounter');
 const game = document.getElementById('game');
 const welcome = document.getElementById('welcome');
+const endscreen = document.getElementById('endscreen');
+const endscore = document.getElementById('endscore');
+const endmessage = document.getElementById('end-message');
 let questionCounter = 0;
 const scoreRef = document.getElementById('score');
 let score = 0;
@@ -18,7 +21,7 @@ let categoryId;
 
 let questions = [];
 
-const pointsCorrectAnswer = 5;
+const pointsCorrectAnswer = 10;
 const maximumQuestions = 10;
 
 
@@ -81,6 +84,22 @@ startGame = () => {
     };
 
     fetchNewQuestion = () => {
+        if (availableQuestions == 0) {
+            game.classList.add('hide');
+            endscreen.classList.remove('hide');
+            endscore.innerText = score;
+            if (score == (maximumQuestions * pointsCorrectAnswer)) {
+                endmessage.innerText = "Congratulations, perfect score!";
+            } else if (score >= ((maximumQuestions / 2) * pointsCorrectAnswer)) {
+                endmessage.innerText = "Congratulations! Above average!";
+            } else if (score > ((maximumQuestions/5) * pointsCorrectAnswer)){
+                endmessage.innerText = "Not bad, try again and beat your own score!"
+            } else {
+                endmessage.innerText = "Please go hit the books!";
+            };
+
+        }
+
     questionCounter++;
     questionCounterRef.innerText = questionCounter + " / " + maximumQuestions;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
