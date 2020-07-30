@@ -10,6 +10,7 @@ const welcome = document.getElementById('welcome');
 const endscreen = document.getElementById('endscreen');
 const endscore = document.getElementById('endscore');
 const endmessage = document.getElementById('end-message');
+const myBar = document.getElementById('myBarProgress');
 let questionCounter = 0;
 const scoreRef = document.getElementById('score');
 let score = 0;
@@ -97,7 +98,9 @@ startGame = () => {
         } else {
 
     questionCounter++;
-    questionCounterRef.innerText = questionCounter + " / " + maximumQuestions;
+    myBar.innerText = `${(questionCounter / maximumQuestions) * 100}%`;
+    myBar.style.width = `${(questionCounter / maximumQuestions) * 100 }%`;
+
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;   
