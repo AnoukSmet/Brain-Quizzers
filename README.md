@@ -195,10 +195,11 @@ You can find my wireframes below:
 <a></a>
 ### **Features to be implemented**
 
-* 
-*
-*
-*
+* Ability to register high score to compare with others
+* Field to insert name so the message are more personalised
+* Add timer of 10 seconds per question
+* Add background images depending on category chosen to make the game more visually appealing
+* Implement chose of difficulty and amount fo questions to target broader audience
 
 
 [Back to Top](#table-of-contents)
@@ -222,7 +223,6 @@ You can find my wireframes below:
 * [Balsamic](https://balsamiq.com/wireframes/)
 * [W3C HTML Validation Service](https://validator.w3.org/)
 * [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
-* [Tiny PNG](https://tinypng.com/)
 * [techsini](http://techsini.com/)
 
 [Back to Top](#table-of-contents)
