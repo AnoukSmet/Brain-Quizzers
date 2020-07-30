@@ -184,7 +184,12 @@ You can find my wireframes below:
 <a></a>
 ### **Existing Features**
 
-#### XXX
+* Use of [open Trivia API](https://opentdb.com/) 
+* Ability to choose preferred category
+* Validation of answers
+* Feedback when answer was incorrectly
+* Tracker for questions and score
+* Personalised message after finishing game depending on final score
 
 
 <a></a>
