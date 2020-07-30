@@ -35,6 +35,9 @@ fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data 
 
 startButton.addEventListener('click', ()  => {
     categoryId = categorySelection.value;
+    if (categorySelection.value == "") { return;} else {
+        categoryId = categorySelection.value;
+    }
     game.classList.remove('hide');
     welcome.classList.add('hide');
     
