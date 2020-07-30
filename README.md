@@ -230,7 +230,7 @@ You can find my wireframes below:
 <a></a>
 ## **Testing**
 
-### Navigation bar
+### Category Selection
 
 * Plan  
 
@@ -242,6 +242,43 @@ You can find my wireframes below:
 
 * Verdict  
 
+### Answer Validation
+
+* Plan  
+
+* Implementation  
+
+* Test  
+
+* Result  
+
+* Verdict 
+
+### Question Counter
+
+* Plan  
+
+* Implementation  
+
+* Test  
+
+* Result  
+
+* Verdict 
+
+### Score Tracker
+
+* Plan  
+
+* Implementation  
+
+* Test  
+
+* Result  
+
+* Verdict 
+
+### Personalised message on end screen
 
 [Back to Top](#table-of-contents)
 
