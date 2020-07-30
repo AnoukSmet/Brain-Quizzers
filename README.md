@@ -303,7 +303,7 @@ After writing the code, committing and pushing it to GitHub:
 1. Navigate to the repository on github and click **Settings**.
 1. From there, go to the **Source section** within the Github Pages section.
 1. Select **master branch** on the dropdown menu, and click save.
-1. Now the website is live on **https://anouksmet.github.io/XXX/**
+1. Now the website is live on **https://anouksmet.github.io/My-Trivia-Game/**
 1. Any time commits and pushes are sent to Github, the Github Pages site should update shortly after.
 
 To run the project locally:
