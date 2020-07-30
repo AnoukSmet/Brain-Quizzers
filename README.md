@@ -46,7 +46,7 @@ If you have any feedback or questions, head over to my GitHub contact details an
 
 * The games has to be responsive on various devices like tablets, phones and desktops
 * The option to choose the category the user would like to play
-* To be able to compare your high score with other players and save it when you're in the top
+* Feedback when wrong answer was chosen
 * Visually appealing website 
 * During the game to track your score and how many questions are left in the game. 
 
@@ -58,7 +58,7 @@ If you have any feedback or questions, head over to my GitHub contact details an
 * As a user, I would like to be able to pick a category
 * As a user, I would like to track my score during the game. 
 * As a user, I expect a variey of questions so no questions get repeated.
-* As a user, I would like to compare my high score to others high scores.
+* As a user, I would like to know the correct answer when answered incorrectly.
 * As a user, I expect that the game has a nice visually appealing lay out to be in line with the game.
 
 1. As a user of a game, the first impression is very important. 
@@ -74,7 +74,7 @@ I just want to be able to play the game, check my score and play again and again
 <a></a>
 ### **Site owners Goals**
 * To have an appealing website where users want to go to play Trivia
-* For people to leave their name when they reached a highscore for some competitiveness
+* For the users to learn something when playing my game
 
 
 [Back to Top](#table-of-contents)
@@ -94,8 +94,9 @@ I just want to be able to play the game, check my score and play again and again
 * When a certain category is chosen, that the correct questions appear
 * Feedback to the users where in the game they are and total amount of questions
 * To let the user know if their answer was correct or false
+* Show correct answer when answered incorrectly
 * To show the final result after playing
-* Being able to add your result to the highscores
+* Show a personalised message after completing the game
 
 
 
@@ -152,27 +153,27 @@ You can find my wireframes below:
 
 ### Desktop Wireframe: Homepage
 
-![Desktop Wireframe](wireframes/desktop-wireframe.png)
+![Desktop Wireframe](wireframes/desktop-homepage.png)
 
 ### Desktop Wireframe: Game
 
-![Desktop Wireframe](wireframes/desktop-wireframe.png)
+![Desktop Wireframe](wireframes/desktop-game.png)
 
 ### Tablet Wireframe: Homepage
 
-![Tablet Wireframe](wireframes/tablet-wireframe.png)
+![Tablet Wireframe](wireframes/tablet-homepage.png)
 
 ### Tablet Wireframe: Game
 
-![Tablet Wireframe](wireframes/tablet-wireframe.png)
+![Tablet Wireframe](wireframes/tablet-game.png)
 
 ### Mobile Wireframe: Homepage
 
-![Mobile Wireframe](wireframes/mobile-wireframe.png)
+![Mobile Wireframe](wireframes/mobile-homepage.png)
 
 ### Mobile Wireframe: Homepage
 
-![Mobile Wireframe](wireframes/mobile-wireframe.png)
+![Mobile Wireframe](wireframes/mobile-game.png)
 
 [Back to Top](#table-of-contents)
 
