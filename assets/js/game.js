@@ -1,4 +1,5 @@
 /* Fetching categories from API */
+const cursor = document.getElementsByTagName("body")[0].style.cursor = 'default';
 
 const categorySelection = document.getElementById('category');
 const question = document.getElementById('question');
@@ -13,6 +14,7 @@ const endmessage = document.getElementById('end-message');
 const myBar = document.getElementById('myBarProgress');
 const endGame = document.getElementById('end-game');
 const playAgain = document.getElementById('play-again');
+
 let questionCounter = 0;
 const scoreRef = document.getElementById('score');
 let score = 0;
