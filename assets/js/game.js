@@ -18,6 +18,8 @@ let displayedQuestion = {};
 let categoryOptions;
 const startButton = document.getElementById('submitCategory');
 let categoryId;
+let acceptingAnswers = false;
+
 
 let questions = [];
 
@@ -108,6 +110,8 @@ startGame = () => {
         });
 
         availableQuestions.splice(questionIndex, 1);
+        acceptingAnswers = true;
+
     
 }
 };
@@ -115,6 +119,9 @@ startGame = () => {
 choices.forEach((choice) => {
 
     choice.addEventListener("click", event => {
+        if (!acceptingAnswers) return;
+
+        acceptingAnswers = false;
     const clickedChoice = event.target;
     const clickedAnswer = clickedChoice.dataset['number'];
 
