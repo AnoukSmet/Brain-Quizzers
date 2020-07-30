@@ -282,15 +282,20 @@ You can find my wireframes below:
 
 [Back to Top](#table-of-contents)
 
-### Bugs
+## **Bugs**
 
-XXX
+### Double click on answer
 
-* Bug  
+* Bug
+When you click on answer and within 1 second you click on another answer, it still validates, goes to the next question and already considers that question answered.   
 
-* Fix      
+* Fix     
+Define variable accepting answers and setting it to false.
+Enable accepting answers once question is loaded.
+When choice is clicked, set accepting answers to false.  
 
 * Verdict  
+Only able to answer question once and does not automatically answer question. Bug resolved. 
 
 [Back to Top](#table-of-contents)
 
