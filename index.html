@@ -34,21 +34,23 @@
                 <div class="col-12">
                     <h1 class="page-title">Trivia Game</h1>
                 </div>
-                <div class="col-12">
-                    <p id="score-container">Your score is: <span id="score"></span></p>
-                    <p id="question-container">Question: <span id="questionCounter"></span></p>
+                <div class="col-12 ">
+                    <p class="progress-container" id="score-container">Your score is: <span id="score"></span></p>
+                    <p class="progress-container" id="question-container">Question: <span id="questionCounter"></span></p>
                 </div>
                 <div class="col-12">
                     <h2 id="question"></h2>  
                 </div>  
                 <div class="col-12">
-                    <div id="left">
-                    <p class="choices" data-number="1"></p>
-                    <p class="choices" data-number="2"></p>
-                    </div>
-                    <div id="right">
-                    <p class="choices" data-number="3"></p>
-                    <p class="choices" data-number="4"></p>
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <p class="choices" data-number="1"></p>
+                            <p class="choices" data-number="2"></p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <p class="choices" data-number="3"></p>
+                            <p class="choices" data-number="4"></p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-12">
@@ -66,8 +68,8 @@
             <div class="col-12">
                 <h1 class="page-title">Trivia Game</h1>
             </div>
-            <div class="col-4 offset-4">
-            <h2 id="end-message"></h2>
+            <div class="col-12 col-lg-6 offset-lg-3">
+            <p id="end-message"></p>
             <p id="total-score">Your total score is: <span id="endscore"></span></p>
             </div>
             <div class="col-12 buttons">
