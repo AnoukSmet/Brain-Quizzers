@@ -1,6 +1,6 @@
 /* Fetching categories from API */
 
-const categorySelection = $('#category');
+const categorySelection = document.getElementById('category');
 const question = document.getElementById('question');
 const feedbackMessage = document.getElementById('wrong-answer-feedback');
 let choices = Array.from(document.getElementsByClassName('choices'));
@@ -29,27 +29,18 @@ fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data 
     const categories = data.trivia_categories;
 
     categories.forEach(category => {
-        let optionField = `<option value="${category.id}">${category.name}</option>`;
-        categorySelection.append(optionField);
-        // let categoryName = category.name;
-        // let categoryId = category.id;
-        // categoryOptions = categorySelection.append(`<option value="${category.id}">${category.name}</option>`);
-        // console.log(categoryOptions.val());
+        categorySelection.options[categorySelection.options.length] = new Option(category.name, category.id);
 });
 });
-
-console.log(startButton);
 
 startButton.addEventListener('click', ()  => {
-    categoryChosen =  $("#category option:selected").val(); 
-    categoryId = parseInt(categoryChosen);
+    categoryId = categorySelection.value;
     game.classList.remove('hide');
     welcome.classList.add('hide');
-    console.log(categoryId);
+    
     
 /* Fetching questions from API */ 
 
-console.log(categoryId);
 fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`).then( res => res.json() ).then(fetchedAPIQuestions => {
      questions = fetchedAPIQuestions.results.map(fetchedQuestion => {
         formattedQuestion = {
