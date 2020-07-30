@@ -297,6 +297,18 @@ When choice is clicked, set accepting answers to false.
 * Verdict  
 Only able to answer question once and does not automatically answer question. Bug resolved. 
 
+### Question and answer not showing nicely
+
+* Bug
+Quotes were not being displaying nicely in the fetched questions and answers.
+
+* Fix 
+Updated the innerText to innerHTML in game.js 
+
+* Verdict
+Quotes are now showing as they should. Bug fixed.
+
+
 [Back to Top](#table-of-contents)
 
 <a></a>
