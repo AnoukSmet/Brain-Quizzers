@@ -112,7 +112,7 @@ body {
     border-color: #671224;
 }
 
-#wrong-answer-feedback {
+#answer-feedback {
     text-align: center;
     padding: 1rem;
     margin-top: 1rem;
@@ -128,16 +128,13 @@ body {
 
 /* Question counter & scores */
 
-.progress-container {
+#score-container {
     background-color: #7C3C4A;
     width: 14rem;
     height: 4rem;
     line-height: 2rem;
     padding: 1rem; 
     text-align: center;  
-}
-
-#score-container {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
@@ -190,7 +187,7 @@ body {
     font-size: 2rem;
     }
 
-    .progress-container {
+    #score-container {
         width: 17rem;
         height: 5rem;
         line-height: 3rem;
@@ -198,11 +195,9 @@ body {
 
 
     #myBar {
-        height: 3rem;
         margin-top: 2rem;
     }
     #myBarProgress {
-        height: 2.4rem;
         font-size: 1.5rem;
     }
 

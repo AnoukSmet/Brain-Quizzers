@@ -2,7 +2,7 @@
 
 const categorySelection = document.getElementById('category');
 const question = document.getElementById('question');
-const feedbackMessage = document.getElementById('wrong-answer-feedback');
+const feedbackMessage = document.getElementById('answer-feedback');
 let choices = Array.from(document.getElementsByClassName('choices'));
 const questionCounterRef = document.getElementById('questionCounter');
 const game = document.getElementById('game');
@@ -109,7 +109,6 @@ startGame = () => {
     choices.forEach((choice) => {
 			const number = choice.dataset[ 'number' ];
             choice.innerText = currentQuestion['choice' + number];
-            // console.log(currentQuestion['choice' + 2]);
         });
 
         availableQuestions.splice(questionIndex, 1);
@@ -130,10 +129,14 @@ choices.forEach((choice) => {
 
     if (clickedAnswer == currentQuestion.answer) {
         clickedChoice.classList.add('correct');
+        feedbackMessage.classList.add('show')
+        feedbackMessage.innerHTML = "That is correct!"
         increaseScore(pointsCorrectAnswer);
         setTimeout ( () => {
             clickedChoice.classList.remove('correct');
-            fetchNewQuestion();}, 1000);
+            feedbackMessage.classList.remove('show')
+            feedbackMessage.innerText = "";
+            fetchNewQuestion();}, 1500);
             
     } else {
         clickedChoice.classList.add('incorrect');
