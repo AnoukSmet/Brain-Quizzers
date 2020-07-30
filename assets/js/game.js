@@ -11,6 +11,8 @@ const endscreen = document.getElementById('endscreen');
 const endscore = document.getElementById('endscore');
 const endmessage = document.getElementById('end-message');
 const myBar = document.getElementById('myBarProgress');
+const endGame = document.getElementById('end-game');
+const playAgain = document.getElementById('play-again');
 let questionCounter = 0;
 const scoreRef = document.getElementById('score');
 let score = 0;
@@ -156,3 +158,14 @@ increaseScore = num => {
     score += num
     scoreRef.innerText = score;
 };
+
+endGame.addEventListener("click", () => {
+    game.classList.add('hide');
+    welcome.classList.remove('hide');
+});
+
+playAgain.addEventListener("click", () => {
+    game.classList.add('hide');
+    welcome.classList.remove('hide');
+    endscreen.classList.add('hide');
+})
