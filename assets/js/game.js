@@ -103,8 +103,8 @@ startGame = () => {
         } else {
 
     questionCounter++;
-    myBar.innerText = `${(questionCounter / maximumQuestions) * 100}%`;
-    myBar.style.width = `${(questionCounter / maximumQuestions) * 100 }%`;
+    myBar.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
+    myBar.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
 
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];

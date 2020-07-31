@@ -47,6 +47,8 @@ body {
     border-radius: 1rem;
 }
 
+
+
 /* Buttons */
 
 .buttons {
@@ -55,11 +57,19 @@ body {
 }
 
 .buttons button {
-    border: 1rem solid #7C3C4A;
     text-decoration: none;
     color: #FCF3EE;
     background-color: #7C3C4A;
     border-radius: 1rem;
+    padding: 1rem;
+}
+
+select#category,
+button#end-game, 
+button#submitCategory,
+button#play-again {
+   border:0px;
+   outline:0px;
 }
 
 /* choices */
@@ -75,6 +85,7 @@ body {
     height: 2.4rem;
     background-color: #7C3C4A;
     width: 0%;
+    text-align: center;
 }
 
 #question {
@@ -90,7 +101,6 @@ body {
 }
 
 .choices {
-    border: 2px solid #7C3C4A;
     background-color: #7C3C4A;
     width: 30rem;
     height: 7rem;
@@ -99,7 +109,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
     cursor: pointer;
     }
     
@@ -198,10 +207,6 @@ body {
     #category {
         width: 35rem;
     }
-    .choices {
-    width: 40rem;
-    margin-top: 3rem;
-    }
 
     #question {
     margin: 1rem 0;
@@ -240,3 +245,9 @@ body {
 
 }
 }
+
+@media (min-width: 992px) {
+    .choices {
+            width: 40rem;
+    }
+} 
