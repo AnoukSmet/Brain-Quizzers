@@ -1,11 +1,10 @@
-/* Fetching categories from API */
-// const cursor = document.getElementsByTagName("body")[0].style.cursor = 'default';
+/* Variables */ 
 
 const categorySelection = document.getElementById('category');
 const question = document.getElementById('question');
 const feedbackMessageIncorrect = document.getElementById('incorrect-answer');
 const feedbackMessageCorrect = document.getElementById('correct-answer');
-let choices = Array.from(document.getElementsByClassName('choices'));
+const choices = Array.from(document.getElementsByClassName('choices'));
 const questionCounterRef = document.getElementById('questionCounter');
 const game = document.getElementById('game');
 const welcome = document.getElementById('welcome');
@@ -15,23 +14,21 @@ const endmessage = document.getElementById('end-message');
 const myBar = document.getElementById('myBarProgress');
 const endGame = document.getElementById('end-game');
 const playAgain = document.getElementById('play-again');
+const scoreRef = document.getElementById('score');
+const startButton = document.getElementById('submitCategory');
+const pointsCorrectAnswer = 10;
+const maximumQuestions = 10;
 
 let questionCounter = 0;
-const scoreRef = document.getElementById('score');
 let score = 0;
 let availableQuestions = [];
 let displayedQuestion = {};
 let categoryOptions;
-const startButton = document.getElementById('submitCategory');
 let categoryId;
 let acceptingAnswers = false;
-
-
 let questions = [];
 
-const pointsCorrectAnswer = 10;
-const maximumQuestions = 10;
-
+/* Fetching categories from API */
 
 fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data => {
     const categories = data.trivia_categories;
@@ -43,9 +40,12 @@ fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data 
 
 startButton.addEventListener('click', ()  => {
     categoryId = categorySelection.value;
-    if (categorySelection.value == "") { return;} else {
+    if (categorySelection.value == "") { 
+        return;
+    } 
+    else {
         categoryId = categorySelection.value;
-    }
+    };
     game.classList.remove('hide');
     welcome.classList.add('hide');
     
@@ -76,6 +76,8 @@ fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=${categoryId}&
     console.error(err);
 });
 });
+/* Start Game function  */
+
 
 startGame = () => {
         questionCounter = 0;
@@ -84,56 +86,51 @@ startGame = () => {
         availableQuestions = [... questions];
         fetchNewQuestion();
     };
-
-    fetchNewQuestion = () => {
-        if (availableQuestions == 0) {
-            game.classList.add('hide');
-            endscreen.classList.remove('hide');
-            const maximumScore = maximumQuestions * pointsCorrectAnswer
-            endscore.innerText = score + " / " + maximumScore;
-            if (score == (maximumQuestions * pointsCorrectAnswer)) {
-                endmessage.innerText = "Congratulations, perfect score!";
-            } else if (score >= ((maximumQuestions / 2) * pointsCorrectAnswer)) {
-                endmessage.innerText = "Congratulations! Above average!";
-            } else if (score > ((maximumQuestions/5) * pointsCorrectAnswer)){
-                endmessage.innerText = "Not bad, try again and beat your own score!"
-            } else {
-                endmessage.innerText = "Please go hit the books!";
-            };
+/* fetching new questions and answers */
+fetchNewQuestion = () => {
+    if (availableQuestions == 0) {
+        game.classList.add('hide');
+        endscreen.classList.remove('hide');
+        const maximumScore = maximumQuestions * pointsCorrectAnswer;
+        endscore.innerText = score + " / " + maximumScore;
+        if (score == (maximumQuestions * pointsCorrectAnswer)) {
+            endmessage.innerText = "Congratulations, perfect score!";
+        } else if (score >= ((maximumQuestions / 2) * pointsCorrectAnswer)) {
+            endmessage.innerText = "Congratulations! Above average!";
+        } else if (score > ((maximumQuestions/5) * pointsCorrectAnswer)){
+            endmessage.innerText = "Not bad, try again and beat your own score!";
         } else {
-
-    questionCounter++;
-    myBar.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
-    myBar.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
-
-    const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-    currentQuestion = availableQuestions[questionIndex];
-    question.innerHTML = currentQuestion.question;   
+            endmessage.innerText = "Please go hit the books!";
+        } 
+    } else {
+        questionCounter++;
+        myBar.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
+        myBar.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
+        const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+        currentQuestion = availableQuestions[questionIndex];
+        question.innerHTML = currentQuestion.question;   
  
-
-    choices.forEach((choice) => {
+        choices.forEach((choice) => {
 			const number = choice.dataset[ 'number' ];
             choice.innerHTML = currentQuestion['choice' + number];
         });
 
         availableQuestions.splice(questionIndex, 1);
-        acceptingAnswers = true;
-
-    
-}
+        acceptingAnswers = true; 
+    }   
 };
 
-choices.forEach((choice) => {
+/* Validation answers */
 
+choices.forEach((choice) => {
     choice.addEventListener("click", event => {
         if (!acceptingAnswers) return;
-    
-        acceptingAnswers = false;
+        
+    acceptingAnswers = false;
     const clickedChoice = event.target;
     const clickedAnswer = clickedChoice.dataset['number'];
 
     if (clickedAnswer == currentQuestion.answer) {
-        
         clickedChoice.classList.add('correct');
         feedbackMessageCorrect.classList.remove('hide')
         feedbackMessageCorrect.innerHTML = `<i class="fas fa-thumbs-up"></i>`;
@@ -154,14 +151,18 @@ choices.forEach((choice) => {
             feedbackMessageIncorrect.classList.add('hide');
             feedbackMessageIncorrect.innerText = "";
             fetchNewQuestion();}, 3000);
-    };
-       });
+        };
+    });
 });
 
+/* Increase score when answer is correct */
+
 increaseScore = num => {
-    score += num
+    score += num;
     scoreRef.innerText = score;
 };
+
+/* Functions to return to homepage when button is clicked */ 
 
 endGame.addEventListener("click", () => {
     game.classList.add('hide');
@@ -172,4 +173,4 @@ playAgain.addEventListener("click", () => {
     game.classList.add('hide');
     welcome.classList.remove('hide');
     endscreen.classList.add('hide');
-})
+});
