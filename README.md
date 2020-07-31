@@ -366,6 +366,7 @@ Quotes are now showing as they should. Bug fixed.
 [Back to Top](#table-of-contents)
 
 <a></a>
+
 ## **Deployment**
 
 This project was deployed via GitHub by executing the following steps.
@@ -389,10 +390,21 @@ To run the project locally:
 [Back to Top](#table-of-contents)
 
 <a></a>
+
 ## **Credits**
 
-### Content - Media - Inspiration
+* The youtube channel of [James Q Quick](https://www.youtube.com/channel/UC-T8W79DN6PBnzomelvqJYw) has really helped me to get started on this project. 
 
-### Acknowledgements
+* I would like to thank my mentor Simen [Eventyret_mentor](https://github.com/Eventyret) for first of all, challenging me to start this project
+and of course also for helping me get started and guiding me in the good direction whenever I had the feeling I couldn't do it. 
+
+* Last but not least, I would also like to thank my partner Artur and my parents for testing testing testing and giving me feedback about the game. 
+It has really helped me to improve the game and make it even more user friendly. 
+
+
+## **Closing Note** 
+When I started this project, I had no idea how to begin. After a lot of research online, watching various movies and talking to my mentor I took my first steps into this project. 
+Along the way I was not always sure I was going to be able to bring this project to a good end but I am incredibly happy I continued on this road and didn't give up. 
+I really have the feeling I learned so much with this project about the complex world of JavaScript. 
 
 [Back to Top](#table-of-contents)
