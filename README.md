@@ -316,6 +316,22 @@ Score display and total score is working as planned across various browsers and 
 * Verdict 
 The test has passed all the criteria and works like planned.
 
+### Personalised message on end screen
+* Plan 
+On the endscreen after completing the game, I wanted to have a personalised message depending on the final score that the user got. 
+
+* Implementation 
+In the fetchNewQuestion function (when available question is 0), I have added a if statement that evaluates the total score of the user. 
+Depending on the result, a different message is loaded on the endscreen. 
+
+* Test 
+I have tested all the different possibilites that I have implemented to make sure the correct message was being displayed. 
+
+* Result
+The correct message is being displayed on the endscreen depending on the total score of the user. 
+
+* Verdict 
+The test has passed all the criteria and works like planned.
 
 
 [Back to Top](#table-of-contents)
