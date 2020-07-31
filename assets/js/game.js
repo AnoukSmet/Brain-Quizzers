@@ -34,7 +34,8 @@ fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data 
     const categories = data.trivia_categories;
 
     categories.forEach(category => {
-        categorySelection.options[categorySelection.options.length] = new Option(category.name, category.id);
+        (categorySelection.options[categorySelection.options.length] = new Option(category.name, category.id)).setAttribute("aria-label",category.name);
+        console.log(categorySelection);
 });
 });
 
