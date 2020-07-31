@@ -1,5 +1,5 @@
 /* Fetching categories from API */
-const cursor = document.getElementsByTagName("body")[0].style.cursor = 'default';
+// const cursor = document.getElementsByTagName("body")[0].style.cursor = 'default';
 
 const categorySelection = document.getElementById('category');
 const question = document.getElementById('question');
@@ -126,12 +126,13 @@ choices.forEach((choice) => {
 
     choice.addEventListener("click", event => {
         if (!acceptingAnswers) return;
-
+    
         acceptingAnswers = false;
     const clickedChoice = event.target;
     const clickedAnswer = clickedChoice.dataset['number'];
 
     if (clickedAnswer == currentQuestion.answer) {
+        
         clickedChoice.classList.add('correct');
         feedbackMessage.classList.add('show')
         feedbackMessage.innerHTML = "That is correct!"

@@ -42,6 +42,9 @@ body {
     transform: translateX(-50%);
     text-align-last:center; 
     height: 5rem;
+    width: 25rem;
+    border: 2px solid #7C3C4A;
+    border-radius: 1rem;
 }
 
 /* Buttons */
@@ -51,12 +54,12 @@ body {
     margin-top: 1rem;
 }
 
-.buttons a, .buttons button {
+.buttons button {
     border: 1rem solid #7C3C4A;
     text-decoration: none;
     color: #FCF3EE;
     background-color: #7C3C4A;
-
+    border-radius: 1rem;
 }
 
 /* choices */
@@ -97,8 +100,15 @@ body {
     justify-content: center;
     align-items: center;
     padding: 1rem;
+    cursor: pointer;
     }
     
+.buttons button:hover, #category:hover {
+    border-color: #713643;
+    background-color: #713643;
+}
+
+
 
 /* Validating answers */
 
@@ -174,8 +184,12 @@ body {
 
     .page-title {
         font-size: 6rem;
-    }
+        margin-top: 5rem;
+        }
 
+    #category {
+        width: 35rem;
+    }
     .choices {
     width: 40rem;
     margin: 3rem auto;
