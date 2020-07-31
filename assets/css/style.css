@@ -122,19 +122,27 @@ body {
     border-color: #671224;
 }
 
-#answer-feedback {
+#incorrect-answer {
     text-align: center;
-    padding: 1rem;
-    margin-top: 1rem;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
+    background-color: #7C3C4A;
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0 1rem;
     }
 
-.show {
-    display: inline-block;
-    background-color: #7C3C4A;
-}
+#correct-answer {
+    font-size: 5rem;
+    text-align: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #7C3C4A;
+} 
+
+
 
 /* Question counter & scores */
 
@@ -192,7 +200,7 @@ body {
     }
     .choices {
     width: 40rem;
-    margin: 3rem auto;
+    margin-top: 3rem;
     }
 
     #question {

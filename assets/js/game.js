@@ -3,7 +3,8 @@
 
 const categorySelection = document.getElementById('category');
 const question = document.getElementById('question');
-const feedbackMessage = document.getElementById('answer-feedback');
+const feedbackMessageIncorrect = document.getElementById('incorrect-answer');
+const feedbackMessageCorrect = document.getElementById('correct-answer');
 let choices = Array.from(document.getElementsByClassName('choices'));
 const questionCounterRef = document.getElementById('questionCounter');
 const game = document.getElementById('game');
@@ -134,24 +135,24 @@ choices.forEach((choice) => {
     if (clickedAnswer == currentQuestion.answer) {
         
         clickedChoice.classList.add('correct');
-        feedbackMessage.classList.add('show')
-        feedbackMessage.innerHTML = "That is correct!"
+        feedbackMessageCorrect.classList.remove('hide')
+        feedbackMessageCorrect.innerHTML = `<i class="fas fa-thumbs-up"></i>`;
         increaseScore(pointsCorrectAnswer);
         setTimeout ( () => {
             clickedChoice.classList.remove('correct');
-            feedbackMessage.classList.remove('show')
-            feedbackMessage.innerText = "";
+            feedbackMessageCorrect.classList.add('hide')
+            feedbackMessageCorrect.innerText = "";
             fetchNewQuestion();}, 1500);
             
     } else {
         clickedChoice.classList.add('incorrect');
-        feedbackMessage.classList.add('show');
+        feedbackMessageIncorrect.classList.remove('hide');
         const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
-        feedbackMessage.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
+        feedbackMessageIncorrect.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
         setTimeout ( () => {
             clickedChoice.classList.remove('incorrect');
-            feedbackMessage.classList.remove('show');
-            feedbackMessage.innerText = "";
+            feedbackMessageIncorrect.classList.add('hide');
+            feedbackMessageIncorrect.innerText = "";
             fetchNewQuestion();}, 3000);
     };
        });
