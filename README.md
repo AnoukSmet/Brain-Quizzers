@@ -233,52 +233,90 @@ You can find my wireframes below:
 ### Category Selection
 
 * Plan  
+When page is loaded, the user should have the possibility to choose the category for the game they want to play. 
+The user shouldn't be able to proceed when no category is chosen.
 
 * Implementation  
+Created a select box in index.html and using javascript I added an option for each category.
 
 * Test  
+I have tested all selecting all the different categories to make sure the correct questions are being showed. 
+Option with 'Please choose your category' has been disabled so the user can only choose one of the categories.
 
 * Result  
+Category selection works as planned and shows nicely on the various browsers and devices.
 
 * Verdict  
+The test has passed all the criteria and works like planned.
 
 ### Answer Validation
 
 * Plan  
+When correct answer was selected, the choice should highlight in a green color and show a 'thumbs up' icon. 
+When the wrong answer was selected, the choice should highlight in a red color and a message should pop up with the correct answer.
 
 * Implementation  
+Adding a function in game.js which validates the answer and adds classes to highlight the relevant choice and message.
+Added a setTimeout function to make sure that the user has sufficient time to see if answer was correct or not. 
+I added more time to the Timeout function when answered incorrectly to make sure the user has enough time to read correct answer.
 
 * Test  
+I tested the answer validation across various devices and browers to make sure it works as planned.
+Relevant color and message is being highlighted.
 
 * Result  
+Answer validation is working as expected on different browsers and devices.
 
 * Verdict 
+The test has passed all the criteria and works like planned.
 
 ### Question Counter
 
 * Plan  
+Original plan was to have a question counter next to the score on the game. 
+After implementing this, I have decided to change my original idea to show a progress bar instead of the question counter. 
+The reason for this, is because I think it is a better user experience for the user. 
 
 * Implementation  
+I have added 2 div elements, once for the outer progress bar and one for the inner. 
+In order to make the progress bar update whenever you go to the next question, I have added the innerhtml (for the text) and added width in the fetchNewQuestion function. 
+This by adding a calculation that calculates the percentage of your current position in the game. 
+I have decided to start the progress bar with the first question at 0% instead of 10% as for me it seemed more logical.
+It only moves to 10% when the first question is answered. 
 
 * Test  
+I have tested the progress bar across different devices and browers to make sure it works accordingly. 
+Progress bar is reacts responsive and for me it has a better result for user experience.
 
 * Result  
+Progress bar works as planned across various devices and browsers. 
 
 * Verdict 
+The test has passed all the criteria and works like planned.
 
 ### Score Tracker
 
 * Plan  
+The plan was to implement a field above the question, displaying the current score of the user which increases when the user selects correct answer.
+Final result should be displayed on the end screen after completing the game. 
 
 * Implementation  
+Added score field to index.html and added function in game.js in order to increase the score by 10 (using the pointsCorrectAnswer variable).
+When game is starting, score is set to 0 and only when the answer was correct, the function increaseScore is being executed. 
+Added as well a field on the section end screen to display the total score when game is completed. 
 
 * Test  
+I have tested this feature with various categories and across various browers and devices. 
+Score is incremented correctly when answering correct and stays the same when the answer was wrong. 
+Correct total score is being displayed on the end screen.
 
 * Result  
+Score display and total score is working as planned across various browsers and devices and increments when answer is correct. 
 
 * Verdict 
+The test has passed all the criteria and works like planned.
 
-### Personalised message on end screen
+
 
 [Back to Top](#table-of-contents)
 
