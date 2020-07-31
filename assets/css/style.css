@@ -13,6 +13,11 @@ body {
     padding: 0;
 }
 
+/* Hide class */
+
+.hide {
+    display: none;
+}
 
 /* Title */
 
@@ -46,8 +51,11 @@ body {
     border-radius: 1rem;
 }
 
+#category:hover {
+    border-color: #713643;
+    background-color: #713643;
 
-
+}
 /* Buttons */
 
 .buttons {
@@ -70,9 +78,13 @@ button#play-again {
    border:0px;
    outline:0px;
 }
+   
+.buttons button:hover {
+    border-color: #713643;
+    background-color: #713643;
+}
 
-/* choices */
-
+/* Progress Bar */
 
 #myBar {
     width: 100%;
@@ -87,6 +99,8 @@ button#play-again {
     text-align: center;
 }
 
+/* Questions */
+
 #question {
     text-align: center;
     background-color: #7C3C4A;
@@ -99,6 +113,8 @@ button#play-again {
     font-size: 1.5rem;
 }
 
+/* Choices */
+
 .choices {
     background-color: #7C3C4A;
     width: 30rem;
@@ -110,13 +126,6 @@ button#play-again {
     align-items: center;
     cursor: pointer;
     }
-    
-.buttons button:hover, #category:hover {
-    border-color: #713643;
-    background-color: #713643;
-}
-
-
 
 /* Validating answers */
 
@@ -150,9 +159,7 @@ button#play-again {
     color: #7C3C4A;
 } 
 
-
-
-/* Question counter & scores */
+/* Scores */
 
 #score-container {
     background-color: #7C3C4A;
@@ -164,10 +171,6 @@ button#play-again {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-}
-
-.hide {
-    display: none;
 }
 
 /* Endscreen */
@@ -198,6 +201,8 @@ button#play-again {
         font-size: 2rem;
     }
 
+    /* Welcome Section */
+
     .page-title {
         font-size: 6rem;
         margin-top: 5rem;
@@ -206,6 +211,7 @@ button#play-again {
     #category {
         width: 35rem;
     }
+    /* Game Section */
 
     #question {
     margin: 1rem 0;
@@ -220,7 +226,6 @@ button#play-again {
         line-height: 3rem;
     }
 
-
     #myBar {
         margin-top: 2rem;
     }
@@ -233,16 +238,16 @@ button#play-again {
     margin-top: 2rem;
     }
 
+    /* Endscreen Section */     
+
     #total-score {
-        margin-bottom: 10rem;
-        
-}
+        margin-bottom: 10rem; 
+    }
 
     #end-message {
         margin-bottom: 1rem;
         margin-top: 3rem;
-
-}
+    }
 }
 
 @media (min-width: 992px) {
