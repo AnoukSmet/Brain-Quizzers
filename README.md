@@ -1,4 +1,4 @@
-# **Naturazy**
+# **Trivia Game**
 
 ![Mokeup image](/)
 
