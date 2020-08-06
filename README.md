@@ -1,10 +1,10 @@
-# **Trivia Game**
+# **Brain Quizzers**
 
 ![Mokeup image](/)
 
 ## **Goal for this project** 
 
-Welcome to my Trivia Game! 
+Welcome to Brain Quizzers! 
 
 Are you looking to test your general knowledge about entertainment, science, sports and so on? 
 Then you are in the perfect place! Get started and you might still even learn a thing or two!
