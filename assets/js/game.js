@@ -1,32 +1,31 @@
 /* Variables */ 
 
-const categorySelection = document.getElementById('category');
-const question = document.getElementById('question');
-const feedbackMessageIncorrect = document.getElementById('incorrect-answer');
-const feedbackMessageCorrect = document.getElementById('correct-answer');
-const choices = Array.from(document.getElementsByClassName('choices'));
-const questionCounterRef = document.getElementById('questionCounter');
-const game = document.getElementById('game');
-const welcome = document.getElementById('welcome');
-const endscreen = document.getElementById('endscreen');
-const endscore = document.getElementById('endscore');
-const endmessage = document.getElementById('end-message');
-const myBar = document.getElementById('myBarProgress');
-const endGame = document.getElementById('end-game');
-const playAgain = document.getElementById('play-again');
-const scoreRef = document.getElementById('score');
-const startButton = document.getElementById('submitCategory');
+const categorySelectionRef = document.querySelector('#category');
+const questionRef = document.querySelector('#question');
+const feedbackMessageIncorrectRef = document.querySelector('#incorrect-answer');
+const feedbackMessageCorrectRef = document.querySelector('#correct-answer');
+// const questionCounterRef = document.querySelector('#questionCounter');
+const gameRef = document.querySelector('#game');
+const welcomeRef = document.querySelector('#welcome');
+const endscreenRef = document.querySelector('#endscreen');
+const endscoreRef = document.querySelector('#endscore');
+const endmessageRef = document.querySelector('#end-message');
+const myBarRef = document.querySelector('#myBarProgress');
+const endGameRef = document.querySelector('#end-game');
+const playAgainRef = document.querySelector('#play-again');
+const scoreRef = document.querySelector('#score');
+const startButtonRef = document.querySelector('#submitCategory');
+const choices = Array.from(document.querySelectorAll('.choices'));
 const pointsCorrectAnswer = 10;
 const maximumQuestions = 10;
-
-let questionCounter = 0;
-let score = 0;
+let questions = [];
 let availableQuestions = [];
 let displayedQuestion = {};
+let questionCounter = 0;
+let score = 0;
+let acceptingAnswers = false;
 let categoryOptions;
 let categoryId;
-let acceptingAnswers = false;
-let questions = [];
 
 /* Fetching categories from API */
 
@@ -34,21 +33,21 @@ fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data 
     const categories = data.trivia_categories;
 
     categories.forEach(category => {
-        (categorySelection.options[categorySelection.options.length] = new Option(category.name, category.id)).setAttribute("aria-label",category.name);
-        console.log(categorySelection);
+        (categorySelectionRef.options[categorySelectionRef.options.length] = new Option(category.name, category.id)).setAttribute("aria-label",category.name);
+        console.log(categorySelectionRef);
 });
 });
 
-startButton.addEventListener('click', ()  => {
-    categoryId = categorySelection.value;
-    if (categorySelection.value == "") { 
+startButtonRef.addEventListener('click', ()  => {
+    categoryId = categorySelectionRef.value;
+    if (categorySelectionRef.value == "") { 
         return;
     } 
     else {
-        categoryId = categorySelection.value;
+        categoryId = categorySelectionRef.value;
     };
-    game.classList.remove('hide');
-    welcome.classList.add('hide');
+    gameRef.classList.remove('hide');
+    welcomeRef.classList.add('hide');
     
     
 /* Fetching questions from API */ 
@@ -90,26 +89,26 @@ startGame = () => {
 /* fetching new questions and answers */
 fetchNewQuestion = () => {
     if (availableQuestions == 0) {
-        game.classList.add('hide');
-        endscreen.classList.remove('hide');
+        gameRef.classList.add('hide');
+        endscreenRef.classList.remove('hide');
         const maximumScore = maximumQuestions * pointsCorrectAnswer;
-        endscore.innerText = score + " / " + maximumScore;
+        endscoreRef.innerText = score + " / " + maximumScore;
         if (score == (maximumQuestions * pointsCorrectAnswer)) {
-            endmessage.innerText = "Congratulations, perfect score!";
+            endmessageRef.innerText = "Congratulations, perfect score!";
         } else if (score >= ((maximumQuestions / 2) * pointsCorrectAnswer)) {
-            endmessage.innerText = "Congratulations! Above average!";
+            endmessageRef.innerText = "Congratulations! Above average!";
         } else if (score > ((maximumQuestions/5) * pointsCorrectAnswer)){
-            endmessage.innerText = "Not bad, try again and beat your own score!";
+            endmessageRef.innerText = "Not bad, try again and beat your own score!";
         } else {
-            endmessage.innerText = "Please go hit the books!";
+            endmessageRef.innerText = "Please go hit the books!";
         } 
     } else {
         questionCounter++;
-        myBar.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
-        myBar.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
+        myBarRef.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
+        myBarRef.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
         const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionIndex];
-        question.innerHTML = currentQuestion.question;   
+        questionRef.innerHTML = currentQuestion.question;   
  
         choices.forEach((choice) => {
 			const number = choice.dataset[ 'number' ];
@@ -133,24 +132,24 @@ choices.forEach((choice) => {
 
     if (clickedAnswer == currentQuestion.answer) {
         clickedChoice.classList.add('correct');
-        feedbackMessageCorrect.classList.remove('hide')
-        feedbackMessageCorrect.innerHTML = `<i class="fas fa-thumbs-up"></i>`;
+        feedbackMessageCorrectRef.classList.remove('hide')
+        feedbackMessageCorrectRef.innerHTML = `<i class="fas fa-thumbs-up"></i>`;
         increaseScore(pointsCorrectAnswer);
         setTimeout ( () => {
             clickedChoice.classList.remove('correct');
-            feedbackMessageCorrect.classList.add('hide')
-            feedbackMessageCorrect.innerText = "";
+            feedbackMessageCorrectRef.classList.add('hide')
+            feedbackMessageCorrectRef.innerText = "";
             fetchNewQuestion();}, 1500);
             
     } else {
         clickedChoice.classList.add('incorrect');
-        feedbackMessageIncorrect.classList.remove('hide');
+        feedbackMessageIncorrectRef.classList.remove('hide');
         const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
-        feedbackMessageIncorrect.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
+        feedbackMessageIncorrectRef.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
         setTimeout ( () => {
             clickedChoice.classList.remove('incorrect');
-            feedbackMessageIncorrect.classList.add('hide');
-            feedbackMessageIncorrect.innerText = "";
+            feedbackMessageIncorrectRef.classList.add('hide');
+            feedbackMessageIncorrectRef.innerText = "";
             fetchNewQuestion();}, 3000);
         };
     });
@@ -165,13 +164,13 @@ increaseScore = num => {
 
 /* Functions to return to homepage when button is clicked */ 
 
-endGame.addEventListener("click", () => {
-    game.classList.add('hide');
-    welcome.classList.remove('hide');
+endGameRef.addEventListener("click", () => {
+    gameRef.classList.add('hide');
+    welcomeRef.classList.remove('hide');
 });
 
-playAgain.addEventListener("click", () => {
-    game.classList.add('hide');
-    welcome.classList.remove('hide');
-    endscreen.classList.add('hide');
+playAgainRef.addEventListener("click", () => {
+    gameRef.classList.add('hide');
+    welcomeRef.classList.remove('hide');
+    endscreenRef.classList.add('hide');
 });
