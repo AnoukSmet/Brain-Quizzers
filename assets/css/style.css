@@ -10,7 +10,7 @@ body {
     background-color: #54455F;
     color: #FCF3EE;
     font-family: "Playfair Display", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin: 0;
     padding: 0;
     cursor: default;
@@ -71,13 +71,12 @@ body {
 }
 /* Buttons */
 
-.buttons {
+.button-container {
     text-align: center;
     margin: 1rem 0;
-    
-}
+} 
 
-.buttons button {
+.buttons {
     text-decoration: none;
     color: #FCF3EE;
     background-color: #7C3C4A;
@@ -91,9 +90,9 @@ button#submitCategory,
 button#play-again {
    border:0px;
    outline:0px;
-}
+} 
    
-.buttons button:hover {
+.buttons:hover {
     border-color: #713643;
     background-color: #713643;
 }
@@ -225,15 +224,15 @@ button#play-again {
     /* Game Section */
 
     #question {
-    margin: 1rem 0;
-    height: 5rem;
-    font-size: 2rem;
-    padding: 2rem;
+        margin: 1rem 0;
+        height: 5rem;
+        font-size: 2rem;
+        padding: 2rem;
     }
 
     .choices {
-            width: 90%;
-            height: 7rem;
+        width: 90%;
+        height: 7rem;
     }
 
     #score-container {
@@ -251,7 +250,7 @@ button#play-again {
 
 
     .buttons {
-    margin-top: 2rem;
+        margin-top: 2rem;
     }
 
     /* Endscreen Section */     
@@ -264,5 +263,4 @@ button#play-again {
         margin-bottom: 1rem;
         margin-top: 3rem;
     }
-
 }
