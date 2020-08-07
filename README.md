@@ -200,8 +200,10 @@ You can find my wireframes below:
 [Back to Top](#table-of-contents)
 
 <a></a>
+
 ## **Technologies used**
 <a></a>
+
 ### **Languages**
 
 * [HTML](https://en.wikipedia.org/wiki/HTML)
@@ -227,109 +229,110 @@ You can find my wireframes below:
 [Back to Top](#table-of-contents)
 
 <a></a>
+
 ## **Testing**
 
 ### Category Selection
 
-* Plan  
+* **Plan**  
 When page is loaded, the user should have the possibility to choose the category for the game they want to play. 
 The user shouldn't be able to proceed when no category is chosen.
 
-* Implementation  
+* **Implementation**  
 Created a select box in index.html and using javascript I added an option for each category.
 
-* Test  
+* **Test**  
 I have tested all selecting all the different categories to make sure the correct questions are being showed. 
 Option with 'Please choose your category' has been disabled so the user can only choose one of the categories.
 
-* Result  
+* **Result**  
 Category selection works as planned and shows nicely on the various browsers and devices.
 
-* Verdict  
+* **Verdict**    
 The test has passed all the criteria and works like planned.
 
 ### Answer Validation
 
-* Plan  
+* **Plan**  
 When correct answer was selected, the choice should highlight in a green color and show a 'thumbs up' icon. 
 When the wrong answer was selected, the choice should highlight in a red color and a message should pop up with the correct answer.
 
-* Implementation  
+* **Implementation**  
 Adding a function in game.js which validates the answer and adds classes to highlight the relevant choice and message.
 Added a setTimeout function to make sure that the user has sufficient time to see if answer was correct or not. 
 I added more time to the Timeout function when answered incorrectly to make sure the user has enough time to read correct answer.
 
-* Test  
+* **Test**  
 I tested the answer validation across various devices and browers to make sure it works as planned.
 Relevant color and message is being highlighted.
 
-* Result  
+* **Result**  
 Answer validation is working as expected on different browsers and devices.
 
-* Verdict 
+* **Verdict**   
 The test has passed all the criteria and works like planned.
 
 ### Question Counter
 
-* Plan  
+* **Plan**  
 Original plan was to have a question counter next to the score on the game. 
 After implementing this, I have decided to change my original idea to show a progress bar instead of the question counter. 
 The reason for this, is because I think it is a better user experience for the user. 
 
-* Implementation  
+* **Implementation**  
 I have added 2 div elements, once for the outer progress bar and one for the inner. 
 In order to make the progress bar update whenever you go to the next question, I have added the innerhtml (for the text) and added width in the fetchNewQuestion function. 
 This by adding a calculation that calculates the percentage of your current position in the game. 
 I have decided to start the progress bar with the first question at 0% instead of 10% as for me it seemed more logical.
 It only moves to 10% when the first question is answered. 
 
-* Test  
+* **Test**  
 I have tested the progress bar across different devices and browers to make sure it works accordingly. 
 Progress bar is reacts responsive and for me it has a better result for user experience.
 
-* Result  
+* **Result**  
 Progress bar works as planned across various devices and browsers. 
 
-* Verdict 
+* **Verdict**   
 The test has passed all the criteria and works like planned.
 
 ### Score Tracker
 
-* Plan  
+* **Plan**  
 The plan was to implement a field above the question, displaying the current score of the user which increases when the user selects correct answer.
 Final result should be displayed on the end screen after completing the game. 
 
-* Implementation  
+* **Implementation**  
 Added score field to index.html and added function in game.js in order to increase the score by 10 (using the pointsCorrectAnswer variable).
 When game is starting, score is set to 0 and only when the answer was correct, the function increaseScore is being executed. 
 Added as well a field on the section end screen to display the total score when game is completed. 
 
-* Test  
+* **Test**  
 I have tested this feature with various categories and across various browers and devices. 
 Score is incremented correctly when answering correct and stays the same when the answer was wrong. 
 Correct total score is being displayed on the end screen.
 
-* Result  
+* **Result**  
 Score display and total score is working as planned across various browsers and devices and increments when answer is correct. 
 
-* Verdict 
+* **Verdict**   
 The test has passed all the criteria and works like planned.
 
 ### Personalised message on end screen
-* Plan 
+* **Plan**   
 On the endscreen after completing the game, I wanted to have a personalised message depending on the final score that the user got. 
 
-* Implementation 
+* **Implementation**   
 In the fetchNewQuestion function (when available question is 0), I have added a if statement that evaluates the total score of the user. 
 Depending on the result, a different message is loaded on the endscreen. 
 
-* Test 
+* **Test**     
 I have tested all the different possibilites that I have implemented to make sure the correct message was being displayed. 
 
-* Result
+* **Result**    
 The correct message is being displayed on the endscreen depending on the total score of the user. 
 
-* Verdict 
+* **Verdict**    
 The test has passed all the criteria and works like planned.
 
 
@@ -339,26 +342,26 @@ The test has passed all the criteria and works like planned.
 
 ### Double click on answer
 
-* Bug
+* **Bug**  
 When you click on answer and within 1 second you click on another answer, it still validates, goes to the next question and already considers that question answered.   
 
-* Fix     
+* **Fix**       
 Define variable accepting answers and setting it to false.
 Enable accepting answers once question is loaded.
 When choice is clicked, set accepting answers to false.  
 
-* Verdict  
+* **Verdict**    
 Only able to answer question once and does not automatically answer question. Bug resolved. 
 
 ### Question and answer not showing nicely
 
-* Bug
+* **Bug**  
 Quotes were not being displaying nicely in the fetched questions and answers.
 
-* Fix 
+* **Fix**   
 Updated the innerText to innerHTML in game.js 
 
-* Verdict
+* **Verdict**  
 Quotes are now showing as they should. Bug fixed.
 
 
@@ -374,7 +377,10 @@ After writing the code, committing and pushing it to GitHub:
 1. Navigate to the repository on github and click **Settings**.
 1. From there, go to the **Source section** within the Github Pages section.
 1. Select **master branch** on the dropdown menu, and click save.
-1. Now the website is live on **https://anouksmet.github.io/My-Trivia-Game/**
+1. Now the website is live on:
+```
+https://yourgithubusername.github.io/your-repo-name
+```
 1. Any time commits and pushes are sent to Github, the Github Pages site should update shortly after.
 
 To run the project locally:
