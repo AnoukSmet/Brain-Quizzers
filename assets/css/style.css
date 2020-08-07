@@ -2,6 +2,8 @@
 
 html {
     font-size: 62.5%;
+    height: 100%;
+    width: 100%;
 }
 
 body {
@@ -13,6 +15,16 @@ body {
     padding: 0;
     cursor: default;
 }
+
+/*
+#background-image {
+    background-image: url('../images/background-image.jpg');
+    background-repeat: no-repeat;
+    background-position: contain;
+    height: 100%;
+    width: 100%;
+}
+*/
 
 /* Hide class */
 

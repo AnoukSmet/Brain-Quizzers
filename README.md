@@ -60,16 +60,11 @@ If you have any feedback or questions, head over to my GitHub contact details an
 * As a user, I expect a variey of questions so no questions get repeated.
 * As a user, I would like to know the correct answer when answered incorrectly.
 * As a user, I expect that the game has a nice visually appealing lay out to be in line with the game.
-
-1. As a user of a game, the first impression is very important. 
-When you want to play a game you already want to get the happy feeling as of the moment you open the website.
-All the different pages should be in the same style to make it as a whole.
-
-1. When I play a game I also like to learn something new. Therefor it's very important to me that the same questions are not repeating themselves.
-And as I am less interested in questions about Geography for example, I would really enjoy being able to pick a category that interests me. 
-
-1. As a user, I want the webiste to be easy to use. I prefer not to have too many buttons or options. 
-I just want to be able to play the game, check my score and play again and again! 
+* As a user of a game, the first impression is very important. 
+* As a user you already want to get the happy feeling as of the moment you open the website.
+* As a user, I expect all the different pages to be in the same style to make it as a whole.
+* As a user I want to learn something new while playing a game. 
+* As a user, I want the webiste to be easy to use. I prefer not to have too many buttons or options. 
 
 <a></a>
 ### **Site owners Goals**
