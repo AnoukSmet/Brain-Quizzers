@@ -209,12 +209,16 @@ You can find my wireframes below:
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
 <a></a>
-### **Tools and Libraries**
+
+### **Libraries & Frameworks**
 
 * [Font Awesome](https://fontawesome.com/)
 * [Bootstrap](https://getbootstrap.com/)
 * [Google Fonts](https://fonts.google.com/)
-* [GitHub](https://github.com/)
+
+### **Tools**
+* [Git](https://git-scm.com/)
+* [GitPod](https://www.gitpod.io/)
 * [Balsamic](https://balsamiq.com/wireframes/)
 * [W3C HTML Validation Service](https://validator.w3.org/)
 * [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/)
