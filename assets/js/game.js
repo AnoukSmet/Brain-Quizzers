@@ -16,6 +16,8 @@ const endGameRef = document.querySelector('#end-game');
 const playAgainRef = document.querySelector('#play-again');
 const scoreRef = document.querySelector('#score');
 const startButtonRef = document.querySelector('#submitCategory');
+const loaderRef = document.querySelector('#loader');
+const errorMessageRef = document.querySelector('#error-message');
 const choices = Array.from(document.querySelectorAll('.choices'));
 const pointsCorrectAnswer = 10;
 const maximumQuestions = 10;
@@ -32,11 +34,10 @@ let categories;
  * Fetch Data from API
  */
 
-
  const fetchData = (url) => {
     return fetch(url).then(res => res.json()).then(data => data)
     .catch(error =>
-        "Failed to Load");
+        errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Error: ${error}. Please refresh the page to try again.`);
     };
 
 fetchedCategories = fetchData("https://opentdb.com/api_category.php");
@@ -57,6 +58,7 @@ startButtonRef.addEventListener('click', ()  => {
     };
     gameRef.classList.remove('hide');
     welcomeRef.classList.add('hide');
+    loaderRef.classList.add('hide');
  
 /** 
 * Fetching questions from API 
@@ -84,72 +86,9 @@ fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${c
 });
 });
 
-//fetchedQuestions.then(fetchedAPIQuestions => {
-  //      console.log(fetchedAPIQuestions);
-        //console.log(questions)
-//});
-//      questions = fetchedAPIQuestions.results.map(fetchedQuestion => {
-//         formattedQuestion = {
-//             question : fetchedQuestion.question,
-//         };
-        
-//      });
-//     console.log(questions);
-
-// });
-
-// });
-
-//     formattedQuestion.answer = Math.floor(Math.random() * 3 ) + 1;
-//     const answerChoices = [ ... fetchedQuestion.incorrect_answers];
-//     answerChoices.splice(formattedQuestion.answer -1, 0, fetchedQuestion.correct_answer);
-
-//     answerChoices.forEach((choice, index) => {
-//         formattedQuestion['choice' + (index + 1)] = choice;
-//     });
-
-//     return formattedQuestion;
-
-//     });
-//     startGame();
-    
-// })
-// .catch(err => {
-//     console.error(err);
-// });
-// });
-
-
-// fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`).then( res => res.json() ).then(fetchedAPIQuestions => {
-//      questions = fetchedAPIQuestions.results.map(fetchedQuestion => {
-//         formattedQuestion = {
-//             question : fetchedQuestion.question,
-//         };
-
-//     formattedQuestion.answer = Math.floor(Math.random() * 3 ) + 1;
-//     const answerChoices = [ ... fetchedQuestion.incorrect_answers];
-//     answerChoices.splice(formattedQuestion.answer -1, 0, fetchedQuestion.correct_answer);
-
-//     answerChoices.forEach((choice, index) => {
-//         formattedQuestion['choice' + (index + 1)] = choice;
-//     });
-
-//     return formattedQuestion;
-
-//     });
-//     startGame();
-    
-// })
-// .catch(err => {
-//     console.error(err);
-// });
-// });
-
-
 /**
 * Start Game function  
 */
-
 
 startGame = () => {
         questionCounter = 0;
