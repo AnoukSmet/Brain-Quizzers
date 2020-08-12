@@ -49,6 +49,7 @@ fetchedCategories.then((result) => {
 });
 
 startButtonRef.addEventListener('click', ()  => {
+    loaderRef.classList.remove('hide')
     categoryId = categorySelectionRef.value;
     if (categorySelectionRef.value == "") { 
         return;
@@ -56,9 +57,8 @@ startButtonRef.addEventListener('click', ()  => {
     else {
         categoryId = categorySelectionRef.value;
     };
-    gameRef.classList.remove('hide');
     welcomeRef.classList.add('hide');
-    loaderRef.classList.add('hide');
+
  
 /** 
 * Fetching questions from API 
@@ -80,6 +80,7 @@ fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${c
 
     return formattedQuestion;
      })
+    loaderRef.classList.add('hide');
     startGame();
     }).catch(err => {
     errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Error: ${error}. Please refresh the page to try again.`
@@ -96,7 +97,9 @@ startGame = () => {
         scoreRef.innerText = score;
         availableQuestions = [... questions];
         fetchNewQuestion();
-    };
+        loaderRef.classList.add('hide');
+        gameRef.classList.remove('hide');
+        };
 
 /** 
 * fetching new questions and answers 
@@ -105,6 +108,7 @@ startGame = () => {
 fetchNewQuestion = () => {
     if (availableQuestions == 0) {
         gameRef.classList.add('hide');
+        loaderRef.classList.add('hide');
         endscreenRef.classList.remove('hide');
         const maximumScore = maximumQuestions * pointsCorrectAnswer;
         endscoreRef.innerText = score + " / " + maximumScore;
@@ -118,6 +122,7 @@ fetchNewQuestion = () => {
             endmessageRef.innerText = "Please go hit the books!";
         } 
     } else {
+        loaderRef.classList.add('hide');
         questionCounter++;
         myBarRef.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
         myBarRef.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
@@ -156,6 +161,7 @@ choices.forEach((choice) => {
             clickedChoice.classList.remove('correct');
             feedbackMessageCorrectRef.classList.add('hide')
             feedbackMessageCorrectRef.innerText = "";
+            loaderRef.classList.remove('hide');
             fetchNewQuestion();}, 1500);
             
     } else {
@@ -167,6 +173,7 @@ choices.forEach((choice) => {
             clickedChoice.classList.remove('incorrect');
             feedbackMessageIncorrectRef.classList.add('hide');
             feedbackMessageIncorrectRef.innerText = "";
+            loaderRef.classList.remove('hide');
             fetchNewQuestion();}, 3000);
         };
     });
@@ -184,6 +191,7 @@ increaseScore = num => {
 /**  
  * Functions to return to homepage when button is clicked 
 */ 
+
 
 endGameRef.addEventListener("click", () => {
     gameRef.classList.add('hide');
