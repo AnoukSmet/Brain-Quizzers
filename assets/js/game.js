@@ -49,6 +49,7 @@ fetchedCategories.then((result) => {
 });
 
 startButtonRef.addEventListener('click', ()  => {
+    welcomeRef.classList.add('hide');
     loaderRef.classList.remove('hide')
     categoryId = categorySelectionRef.value;
     if (categorySelectionRef.value == "") { 
@@ -57,7 +58,6 @@ startButtonRef.addEventListener('click', ()  => {
     else {
         categoryId = categorySelectionRef.value;
     };
-    welcomeRef.classList.add('hide');
 
  
 /** 
@@ -80,7 +80,6 @@ fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${c
 
     return formattedQuestion;
      })
-    loaderRef.classList.add('hide');
     startGame();
     }).catch(err => {
     errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Error: ${error}. Please refresh the page to try again.`
