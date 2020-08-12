@@ -82,7 +82,7 @@ fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${c
      })
     startGame();
     }).catch(err => {
-    console.error(err);
+    errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Error: ${error}. Please refresh the page to try again.`
 });
 });
 
