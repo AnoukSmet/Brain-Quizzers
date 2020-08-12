@@ -1,10 +1,11 @@
-/* Variables */ 
+/**
+ * Defining variables 
+ */
 
 const categorySelectionRef = document.querySelector('#category');
 const questionRef = document.querySelector('#question');
 const feedbackMessageIncorrectRef = document.querySelector('#incorrect-answer');
 const feedbackMessageCorrectRef = document.querySelector('#correct-answer');
-// const questionCounterRef = document.querySelector('#questionCounter');
 const gameRef = document.querySelector('#game');
 const welcomeRef = document.querySelector('#welcome');
 const endscreenRef = document.querySelector('#endscreen');
@@ -26,16 +27,24 @@ let score = 0;
 let acceptingAnswers = false;
 let categoryOptions;
 let categoryId;
+let categories;
+/**
+ * Fetch Data from API
+ */
 
-/* Fetching categories from API */
 
-fetch("https://opentdb.com/api_category.php").then(res => res.json()).then(data => {
-    const categories = data.trivia_categories;
+ const fetchData = (url) => {
+    return fetch(url).then(res => res.json()).then(data => data)
+    .catch(error =>
+        "Failed to Load");
+    };
 
+fetchedCategories = fetchData("https://opentdb.com/api_category.php");
+fetchedCategories.then((result) => {
+    categories = result.trivia_categories;
     categories.forEach(category => {
-        (categorySelectionRef.options[categorySelectionRef.options.length] = new Option(category.name, category.id)).setAttribute("aria-label",category.name);
-        console.log(categorySelectionRef);
-});
+         (categorySelectionRef.options[categorySelectionRef.options.length] = new Option(category.name, category.id));
+    });
 });
 
 startButtonRef.addEventListener('click', ()  => {
@@ -48,12 +57,13 @@ startButtonRef.addEventListener('click', ()  => {
     };
     gameRef.classList.remove('hide');
     welcomeRef.classList.add('hide');
-    
-    
-/* Fetching questions from API */ 
+ 
+/** 
+* Fetching questions from API 
+*/
 
-fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`).then( res => res.json() ).then(fetchedAPIQuestions => {
-     questions = fetchedAPIQuestions.results.map(fetchedQuestion => {
+fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`).then((fetchedQuestions) => {
+     questions = fetchedQuestions.results.map(fetchedQuestion => {
         formattedQuestion = {
             question : fetchedQuestion.question,
         };
@@ -67,16 +77,78 @@ fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=${categoryId}&
     });
 
     return formattedQuestion;
-
-    });
+     })
     startGame();
-    
-})
-.catch(err => {
+    }).catch(err => {
     console.error(err);
 });
 });
-/* Start Game function  */
+
+//fetchedQuestions.then(fetchedAPIQuestions => {
+  //      console.log(fetchedAPIQuestions);
+        //console.log(questions)
+//});
+//      questions = fetchedAPIQuestions.results.map(fetchedQuestion => {
+//         formattedQuestion = {
+//             question : fetchedQuestion.question,
+//         };
+        
+//      });
+//     console.log(questions);
+
+// });
+
+// });
+
+//     formattedQuestion.answer = Math.floor(Math.random() * 3 ) + 1;
+//     const answerChoices = [ ... fetchedQuestion.incorrect_answers];
+//     answerChoices.splice(formattedQuestion.answer -1, 0, fetchedQuestion.correct_answer);
+
+//     answerChoices.forEach((choice, index) => {
+//         formattedQuestion['choice' + (index + 1)] = choice;
+//     });
+
+//     return formattedQuestion;
+
+//     });
+//     startGame();
+    
+// })
+// .catch(err => {
+//     console.error(err);
+// });
+// });
+
+
+// fetchData = fetch(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`).then( res => res.json() ).then(fetchedAPIQuestions => {
+//      questions = fetchedAPIQuestions.results.map(fetchedQuestion => {
+//         formattedQuestion = {
+//             question : fetchedQuestion.question,
+//         };
+
+//     formattedQuestion.answer = Math.floor(Math.random() * 3 ) + 1;
+//     const answerChoices = [ ... fetchedQuestion.incorrect_answers];
+//     answerChoices.splice(formattedQuestion.answer -1, 0, fetchedQuestion.correct_answer);
+
+//     answerChoices.forEach((choice, index) => {
+//         formattedQuestion['choice' + (index + 1)] = choice;
+//     });
+
+//     return formattedQuestion;
+
+//     });
+//     startGame();
+    
+// })
+// .catch(err => {
+//     console.error(err);
+// });
+// });
+
+
+/**
+* Start Game function  
+*/
 
 
 startGame = () => {
@@ -86,14 +158,18 @@ startGame = () => {
         availableQuestions = [... questions];
         fetchNewQuestion();
     };
-/* fetching new questions and answers */
+
+/** 
+* fetching new questions and answers 
+*/
+
 fetchNewQuestion = () => {
     if (availableQuestions == 0) {
         gameRef.classList.add('hide');
         endscreenRef.classList.remove('hide');
         const maximumScore = maximumQuestions * pointsCorrectAnswer;
         endscoreRef.innerText = score + " / " + maximumScore;
-        if (score == (maximumQuestions * pointsCorrectAnswer)) {
+        if (score === (maximumQuestions * pointsCorrectAnswer)) {
             endmessageRef.innerText = "Congratulations, perfect score!";
         } else if (score >= ((maximumQuestions / 2) * pointsCorrectAnswer)) {
             endmessageRef.innerText = "Congratulations! Above average!";
@@ -120,7 +196,9 @@ fetchNewQuestion = () => {
     }   
 };
 
-/* Validation answers */
+/** 
+*Validation answers 
+*/
 
 choices.forEach((choice) => {
     choice.addEventListener("click", event => {
@@ -155,14 +233,18 @@ choices.forEach((choice) => {
     });
 });
 
-/* Increase score when answer is correct */
+/** 
+ * Increase score when answer is correct 
+*/
 
 increaseScore = num => {
     score += num;
     scoreRef.innerText = score;
 };
 
-/* Functions to return to homepage when button is clicked */ 
+/**  
+ * Functions to return to homepage when button is clicked 
+*/ 
 
 endGameRef.addEventListener("click", () => {
     gameRef.classList.add('hide');
