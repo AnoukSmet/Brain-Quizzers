@@ -23,11 +23,9 @@ const pointsCorrectAnswer = 10;
 const maximumQuestions = 10;
 let questions = [];
 let availableQuestions = [];
-let displayedQuestion = {};
 let questionCounter = 0;
 let score = 0;
 let acceptingAnswers = false;
-let categoryOptions;
 let categoryId;
 let categories;
 
@@ -35,11 +33,13 @@ let categories;
  * Fetches the data from the API and converts results to json
  */
 
- const fetchData = (url) => {
+const fetchData = (url) => {
     return fetch(url).then(res => res.json())
-    .catch(err =>
-        errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Error: ${err}. Please refresh the page to try again.`);
-    };
+.catch(err => {
+    errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Please refresh the page to try again.`;
+    console.error(err);
+ });
+};
 
 /**
  * Function to retrieve the categories and pass them to the DOM
@@ -59,40 +59,41 @@ fetchedCategories.then((result) => {
 
 startButtonRef.addEventListener('click', ()  => {
     welcomeRef.classList.add('hide');
-    loaderRef.classList.remove('hide')
+    loaderRef.classList.remove('hide');
     categoryId = categorySelectionRef.value;
-    if (categorySelectionRef.value == "") { 
+    if (categorySelectionRef.value === "") { 
         return;
-    } 
-    else {
+    } else {
         categoryId = categorySelectionRef.value;
-    };
+    }
 
  
 /** 
 * Function to retrieve the questions, formats them and passes them to the DOM 
 */
 
-fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`).then((fetchedQuestions) => {
-     questions = fetchedQuestions.results.map(fetchedQuestion => {
-        formattedQuestion = {
-            question : fetchedQuestion.question,
-        };
+    fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`).then((fetchedQuestions) => {
+        questions = fetchedQuestions.results.map(fetchedQuestion => {
+            formattedQuestion = {
+                question : fetchedQuestion.question,
+            };
 
-    formattedQuestion.answer = Math.floor(Math.random() * 3 ) + 1;
-    const answerChoices = [ ... fetchedQuestion.incorrect_answers];
-    answerChoices.splice(formattedQuestion.answer -1, 0, fetchedQuestion.correct_answer);
+            formattedQuestion.answer = Math.floor(Math.random() * 3 ) + 1;
+            const answerChoices = [ ... fetchedQuestion.incorrect_answers];
+            answerChoices.splice(formattedQuestion.answer -1, 0, fetchedQuestion.correct_answer);
 
-    answerChoices.forEach((choice, index) => {
-        formattedQuestion['choice' + (index + 1)] = choice;
-    });
+            answerChoices.forEach((choice, index) => {
+                formattedQuestion['choice' + (index + 1)] = choice;
+            });
 
-    return formattedQuestion;
-     })
-    startGame();
-    }).catch(err => {
-    errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Error: ${err}. Please refresh the page to try again.`
-});
+            return formattedQuestion;
+        });
+
+        startGame();
+        }).catch(err => {
+            errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Please refresh the page to try again.`
+            console.error(err);
+        });
 });
 
 /**
@@ -100,14 +101,14 @@ fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${c
 */
 
 startGame = () => {
-        questionCounter = 0;
-        score = 0;
-        scoreRef.innerText = score;
-        availableQuestions = [... questions];
-        fetchNewQuestion();
-        loaderRef.classList.add('hide');
-        gameRef.classList.remove('hide');
-        };
+    questionCounter = 0;
+    score = 0;
+    scoreRef.innerText = score;
+    availableQuestions = [... questions];
+    fetchNewQuestion();
+    loaderRef.classList.add('hide');
+    gameRef.classList.remove('hide');
+};
 
 /** 
  * Checks if there are any remaining questions and either ends the game with personalised message
@@ -115,7 +116,7 @@ startGame = () => {
 */
 
 fetchNewQuestion = () => {
-    if (availableQuestions == 0) {
+    if (availableQuestions.length === 0) {
         gameRef.classList.add('hide');
         loaderRef.classList.add('hide');
         endscreenRef.classList.remove('hide');
@@ -140,7 +141,7 @@ fetchNewQuestion = () => {
         questionRef.innerHTML = currentQuestion.question;   
  
         choices.forEach((choice) => {
-			const number = choice.dataset[ 'number' ];
+			const number = choice.dataset.number;
             choice.innerHTML = currentQuestion['choice' + number];
         });
 /**
@@ -161,34 +162,35 @@ choices.forEach((choice) => {
     choice.addEventListener("click", event => {
         if (!acceptingAnswers) return;
         
-    acceptingAnswers = false;
-    const clickedChoice = event.target;
-    const clickedAnswer = clickedChoice.dataset['number'];
+        acceptingAnswers = false;
+        const clickedChoice = event.target;
+        const clickedAnswer = clickedChoice.dataset['number'];
 
-    if (clickedAnswer == currentQuestion.answer) {
-        clickedChoice.classList.add('correct');
-        feedbackMessageCorrectRef.classList.remove('hide')
-        feedbackMessageCorrectRef.innerHTML = `<i class="fas fa-thumbs-up"></i>`;
-        increaseScore(pointsCorrectAnswer);
-        setTimeout ( () => {
-            clickedChoice.classList.remove('correct');
-            feedbackMessageCorrectRef.classList.add('hide')
-            feedbackMessageCorrectRef.innerText = "";
-            loaderRef.classList.remove('hide');
-            fetchNewQuestion();}, 1500);
-            
-    } else {
-        clickedChoice.classList.add('incorrect');
-        feedbackMessageIncorrectRef.classList.remove('hide');
-        const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
-        feedbackMessageIncorrectRef.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
-        setTimeout ( () => {
-            clickedChoice.classList.remove('incorrect');
-            feedbackMessageIncorrectRef.classList.add('hide');
-            feedbackMessageIncorrectRef.innerText = "";
-            loaderRef.classList.remove('hide');
-            fetchNewQuestion();}, 3000);
-        };
+        if (clickedAnswer == currentQuestion.answer) {
+            clickedChoice.classList.add('correct');
+            feedbackMessageCorrectRef.classList.remove('hide');
+            feedbackMessageCorrectRef.innerHTML = `<i class="fas fa-thumbs-up"></i>`;
+            increaseScore(pointsCorrectAnswer);
+            setTimeout ( () => {
+                clickedChoice.classList.remove('correct');
+                feedbackMessageCorrectRef.classList.add('hide');
+                feedbackMessageCorrectRef.innerText = "";
+                loaderRef.classList.remove('hide');
+                fetchNewQuestion();}
+                , 1500);
+        } else {
+            clickedChoice.classList.add('incorrect');
+            feedbackMessageIncorrectRef.classList.remove('hide');
+            const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
+            feedbackMessageIncorrectRef.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
+            setTimeout ( () => {
+                clickedChoice.classList.remove('incorrect');
+                feedbackMessageIncorrectRef.classList.add('hide');
+                feedbackMessageIncorrectRef.innerText = "";
+                loaderRef.classList.remove('hide');
+                fetchNewQuestion();}
+                , 3000);
+        }
     });
 });
 
