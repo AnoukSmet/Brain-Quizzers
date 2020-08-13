@@ -30,15 +30,20 @@ let acceptingAnswers = false;
 let categoryOptions;
 let categoryId;
 let categories;
+
 /**
- * Fetch Data from API
+ * Fetches the data from the API and converts results to json
  */
 
  const fetchData = (url) => {
-    return fetch(url).then(res => res.json()).then(data => data)
-    .catch(error =>
-        errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Error: ${error}. Please refresh the page to try again.`);
+    return fetch(url).then(res => res.json())
+    .catch(err =>
+        errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Error: ${err}. Please refresh the page to try again.`);
     };
+
+/**
+ * Function to retrieve the categories and pass them to the DOM
+ */
 
 fetchedCategories = fetchData("https://opentdb.com/api_category.php");
 fetchedCategories.then((result) => {
@@ -47,6 +52,10 @@ fetchedCategories.then((result) => {
          (categorySelectionRef.options[categorySelectionRef.options.length] = new Option(category.name, category.id));
     });
 });
+
+/**
+ * Function to retrieve category Id when category is selected 
+ */
 
 startButtonRef.addEventListener('click', ()  => {
     welcomeRef.classList.add('hide');
@@ -61,7 +70,7 @@ startButtonRef.addEventListener('click', ()  => {
 
  
 /** 
-* Fetching questions from API 
+* Function to retrieve the questions, formats them and passes them to the DOM 
 */
 
 fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`).then((fetchedQuestions) => {
@@ -82,12 +91,12 @@ fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${c
      })
     startGame();
     }).catch(err => {
-    errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Error: ${error}. Please refresh the page to try again.`
+    errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Error: ${err}. Please refresh the page to try again.`
 });
 });
 
 /**
-* Start Game function  
+ *  Sets question counter and score to 0 and defines the questions and get new question
 */
 
 startGame = () => {
@@ -101,7 +110,8 @@ startGame = () => {
         };
 
 /** 
-* fetching new questions and answers 
+ * Checks if there are any remaining questions and either ends the game with personalised message
+ * If no questions are left, gets next question, update the progress bar for the question counter and gets next question + choices
 */
 
 fetchNewQuestion = () => {
@@ -133,14 +143,18 @@ fetchNewQuestion = () => {
 			const number = choice.dataset[ 'number' ];
             choice.innerHTML = currentQuestion['choice' + number];
         });
-
+/**
+ * Removes the current question from the available Questions so it will not be repeated
+ */
         availableQuestions.splice(questionIndex, 1);
         acceptingAnswers = true; 
     }   
 };
 
 /** 
-*Validation answers 
+* Validates the selected answer and highlights either correct or incorrect
+* Depending on answer, a feedback message will be displayed with or a thumbs up or the correct answer 
+* 2 Time out functions depending on if answer was correct or not. More time when incorrect so user has enough time to read correct answer
 */
 
 choices.forEach((choice) => {
