@@ -16,6 +16,12 @@ body {
     cursor: default;
 }
 
+
+#background-image {
+    background-image: url('../images/background-image.jpg');
+    background-size: contain;
+}
+
 /* Hide class */
 
 .hide {
@@ -44,7 +50,7 @@ body {
     background-size: cover;
     height: 15rem;
     width: 15rem;
-    margin: auto
+    margin: 10rem auto;
 }
 
 #category-title {
