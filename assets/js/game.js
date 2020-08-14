@@ -35,17 +35,17 @@ let categories;
 
 const fetchData = (url) => {
     return fetch(url).then(res => res.json())
-.catch(err => {
-    errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Please refresh the page to try again.`;
-    console.error(err);
- });
+    .catch(err => {
+        errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Please refresh the page to try again.`;
+        console.error(err);
+    });
 };
 
 /**
  * Function to retrieve the categories and pass them to the DOM
  */
 
-fetchedCategories = fetchData("https://opentdb.com/api_category.php");
+const fetchedCategories = fetchData("https://opentdb.com/api_category.php");
 fetchedCategories.then((result) => {
     categories = result.trivia_categories;
     categories.forEach(category => {
@@ -67,12 +67,11 @@ startButtonRef.addEventListener('click', ()  => {
         categoryId = categorySelectionRef.value;
     }
 
- 
 /** 
 * Function to retrieve the questions, formats them and passes them to the DOM 
 */
 
-    fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`).then((fetchedQuestions) => {
+    const fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`).then((fetchedQuestions) => {
         questions = fetchedQuestions.results.map(fetchedQuestion => {
             formattedQuestion = {
                 question : fetchedQuestion.question,
@@ -91,7 +90,7 @@ startButtonRef.addEventListener('click', ()  => {
 
         startGame();
         }).catch(err => {
-            errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Please refresh the page to try again.`
+            errorMessageRef.innerHTML = `Oops it looks like you shouldn't get any smarter. Please refresh the page to try again.`;
             console.error(err);
         });
 });
@@ -100,7 +99,7 @@ startButtonRef.addEventListener('click', ()  => {
  *  Sets question counter and score to 0 and defines the questions and get new question
 */
 
-startGame = () => {
+const startGame = () => {
     questionCounter = 0;
     score = 0;
     scoreRef.innerText = score;
@@ -115,7 +114,7 @@ startGame = () => {
  * If no questions are left, gets next question, update the progress bar for the question counter and gets next question + choices
 */
 
-fetchNewQuestion = () => {
+const fetchNewQuestion = () => {
     if (availableQuestions.length === 0) {
         gameRef.classList.add('hide');
         loaderRef.classList.add('hide');

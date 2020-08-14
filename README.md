@@ -128,8 +128,10 @@ Below I will explain more why I choose the various colors and for what I will be
 
 I have used to contract checker on Coolors in order to make sure that the contract is sufficient.
 This way my content will be easily readable. 
+In order to make sure my website is also user friendly for visually impaired users, I have used [Color Filter](http://colorfilter.wickline.org/).
 
 <a></a>
+
 #### Structure
 I have chosen to use [Bootstrap](https://getbootstrap.com/) to create an overall structure for my website. 
 Bootstrap provides various elements of CSS and Javascript which is very helpful to keep a good structure on your page. 
@@ -139,6 +141,7 @@ As Bootstrap is designed for mobile first, I will be certain that my website fun
 
 --- 
 <a></a>
+
 ## **Wireframes**
 I have decided to use [Balsamic](https://balsamiq.com/wireframes/) to create wireframes for my website. 
 First I created a basic wireframe for desktop and later on for tablet and mobile. 
