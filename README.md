@@ -33,10 +33,12 @@ If you have any feedback or questions, head over to my GitHub contact details an
     * [Features to be implemented](#features-to-be-implemented)
 * [Technologies used](#technologies-used)
     * [Languages](#languages)
-    * [Tools and Libraries](#tools-and-libraries)
+    * [Libraries and Frameworks](#libraries-and-frameworks)
+    * [Tools](#tools)
 * [Testing](#testing)
 * [Deployment](#deployment)
 * [Credits](#credits)
+* [Closing Note](#closing-note)
 
 
 <a name="ux"></a>
@@ -53,6 +55,7 @@ If you have any feedback or questions, head over to my GitHub contact details an
 [Back to Top](#table-of-contents)
 
 <a></a>
+
 ### **User Stories**
 
 * As a user, I would like to be able to pick a category
@@ -65,8 +68,10 @@ If you have any feedback or questions, head over to my GitHub contact details an
 * As a user, I expect all the different pages to be in the same style to make it as a whole.
 * As a user I want to learn something new while playing a game. 
 * As a user, I want the webiste to be easy to use. I prefer not to have too many buttons or options. 
+* As a user, I want to know where I am in the game, to know how many questions I still have left. 
 
 <a></a>
+
 ### **Site owners Goals**
 * To have an appealing website where users want to go to play Trivia
 * For the users to learn something when playing my game
@@ -149,29 +154,18 @@ First I created a basic wireframe for desktop and later on for tablet and mobile
 
 You can find my wireframes below:
 
-### Desktop Wireframe: Homepage
+### Desktop Wireframes
+* [Homepage](wireframes/desktop-homepage.png)
+* [Game](wireframes/desktop-game.png)
 
-![Desktop Wireframe](wireframes/desktop-homepage.png)
+### Tablet Wireframes
+* [Homepage](wireframes/tablet-homepage.png)
+* [Game](wireframes/tablet-game.png)
 
-### Desktop Wireframe: Game
+### Mobile Wireframes
+* [Homepage](wireframes/mobile-homepage.png)
+* [Game](wireframes/mobile-game.png)
 
-![Desktop Wireframe](wireframes/desktop-game.png)
-
-### Tablet Wireframe: Homepage
-
-![Tablet Wireframe](wireframes/tablet-homepage.png)
-
-### Tablet Wireframe: Game
-
-![Tablet Wireframe](wireframes/tablet-game.png)
-
-### Mobile Wireframe: Homepage
-
-![Mobile Wireframe](wireframes/mobile-homepage.png)
-
-### Mobile Wireframe: Homepage
-
-![Mobile Wireframe](wireframes/mobile-game.png)
 
 [Back to Top](#table-of-contents)
 
@@ -215,7 +209,7 @@ You can find my wireframes below:
 
 <a></a>
 
-### **Libraries & Frameworks**
+### **Libraries and Frameworks**
 
 * [Font Awesome](https://fontawesome.com/)
 * [Bootstrap](https://getbootstrap.com/)
@@ -258,7 +252,7 @@ The test has passed all the criteria and works like planned.
 
 * **Plan**  
 When correct answer was selected, the choice should highlight in a green color and show a 'thumbs up' icon. 
-When the wrong answer was selected, the choice should highlight in a red color and a message should pop up with the correct answer.
+When the wrong answer was selected, the choice should highlight in a red color and a message should show with the correct answer.
 
 * **Implementation**  
 Adding a function in game.js which validates the answer and adds classes to highlight the relevant choice and message.
@@ -377,16 +371,17 @@ Quotes are now showing as they should. Bug fixed.
 This project was deployed via GitHub by executing the following steps.
 After writing the code, committing and pushing it to GitHub:
 
-1. Navigate to the repository on github and click **Settings**.
-1. From there, go to the **Source section** within the Github Pages section.
-1. Select **master branch** on the dropdown menu, and click save.
-1. Now the website is live on:
+* Navigate to the repository on github and click **Settings**.
+* From there, go to the **Source section** within the Github Pages section.
+* Select **master branch** on the dropdown menu, and click save.
+* Now the website is live on:
+
 ```
 https://yourgithubusername.github.io/your-repo-name
 ```
-1. Any time commits and pushes are sent to Github, the Github Pages site should update shortly after.
+* Any time commits and pushes are sent to Github, the Github Pages site should update shortly after.
 
-To run the project locally:
+### **To run the project locally:**
 
 1. Click the **green Clone or Download button** on the Github Repository
 1. Using the **Clone with HTTPS option**, copy the link displayed.
