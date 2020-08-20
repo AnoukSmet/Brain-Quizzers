@@ -163,7 +163,7 @@ choices.forEach((choice) => {
         
         acceptingAnswers = false;
         const clickedChoice = event.target;
-        const clickedAnswer = clickedChoice.dataset['number'];
+        const clickedAnswer = clickedChoice.dataset.number;
 
         if (clickedAnswer == currentQuestion.answer) {
             clickedChoice.classList.add('correct');
@@ -187,7 +187,7 @@ choices.forEach((choice) => {
                 feedbackMessageIncorrectRef.classList.add('hide');
                 feedbackMessageIncorrectRef.innerText = "";
                 loaderRef.classList.remove('hide');
-                fetchNewQuestion()
+                fetchNewQuestion();
             }, 3000);
         }
     });
