@@ -1,6 +1,6 @@
 # **Brain Quizzers**
 
-![Mokeup image](/)
+![Mokeup image](wireframes/mokeup-image.png)
 
 ## **Goal for this project** 
 

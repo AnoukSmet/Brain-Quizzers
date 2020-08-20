@@ -175,8 +175,8 @@ choices.forEach((choice) => {
                 feedbackMessageCorrectRef.classList.add('hide');
                 feedbackMessageCorrectRef.innerText = "";
                 loaderRef.classList.remove('hide');
-                fetchNewQuestion();}
-                , 1500);
+                fetchNewQuestion();
+            }, 1500);
         } else {
             clickedChoice.classList.add('incorrect');
             feedbackMessageIncorrectRef.classList.remove('hide');
@@ -187,8 +187,8 @@ choices.forEach((choice) => {
                 feedbackMessageIncorrectRef.classList.add('hide');
                 feedbackMessageIncorrectRef.innerText = "";
                 loaderRef.classList.remove('hide');
-                fetchNewQuestion();}
-                , 3000);
+                fetchNewQuestion()
+            }, 3000);
         }
     });
 });
