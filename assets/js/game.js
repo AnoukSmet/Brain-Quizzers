@@ -119,11 +119,11 @@ const fetchNewQuestion = () => {
     if (availableQuestions.length === 0){
         endgame();
     } else {
+        const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         loaderRef.classList.add('hide');
         questionCounter++;
         myBarRef.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
         myBarRef.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
-        const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         currentQuestion = availableQuestions[questionIndex];
         questionRef.innerHTML = currentQuestion.question;   
  
@@ -131,36 +131,39 @@ const fetchNewQuestion = () => {
 			const number = choice.dataset.number;
             choice.innerHTML = currentQuestion['choice' + number];
         });
+   
+        /**
+        * Removes the current question from the avail Questions so it will not repeat
+        */
+
+        availableQuestions.splice(questionIndex, 1);
+        acceptingAnswers = true; 
+        validatingAnswers();
+    }   
+};
 
 /** 
  * Function that is called when there are no questions left
  * Displays personalised message depending on the total score of user 
  * 
 */
-    endgame = () => {
-        gameRef.classList.add('hide');
-        loaderRef.classList.add('hide');
-        endscreenRef.classList.remove('hide');
-        const maximumScore = maximumQuestions * pointsCorrectAnswer;
-        endscoreRef.innerText = score + " / " + maximumScore;
-        if (score === (maximumQuestions * pointsCorrectAnswer)) {
-            endmessageRef.innerText = "Congratulations, perfect score!";
-        } else if (score >= ((maximumQuestions / 2) * pointsCorrectAnswer)) {
-            endmessageRef.innerText = "Congratulations! Above average!";
-        } else if (score > ((maximumQuestions/5) * pointsCorrectAnswer)){
-            endmessageRef.innerText = "Not bad, try again and beat your own score!";
-        } else {
-            endmessageRef.innerText = "Please go hit the books!";
-        } 
-    }
-/**
- * Removes the current question from the avail Questions so it will not repeat
- */
-        availableQuestions.splice(questionIndex, 1);
-        acceptingAnswers = true; 
-        validatingAnswers();
-    }   
-};
+
+endgame = () => {
+    const maximumScore = maximumQuestions * pointsCorrectAnswer;
+    gameRef.classList.add('hide');
+    loaderRef.classList.add('hide');
+    endscreenRef.classList.remove('hide');
+    endscoreRef.innerText = score + " / " + maximumScore;
+    if (score === (maximumQuestions * pointsCorrectAnswer)) {
+        endmessageRef.innerText = "Congratulations, perfect score!";
+    } else if (score >= ((maximumQuestions / 2) * pointsCorrectAnswer)) {
+        endmessageRef.innerText = "Congratulations! Above average!";
+    } else if (score > ((maximumQuestions/5) * pointsCorrectAnswer)){
+        endmessageRef.innerText = "Not bad, try again and beat your own score!";
+    } else {
+        endmessageRef.innerText = "Please go hit the books!";
+    } 
+}
 
 /** 
 * Validates the selected answer and highlights either correct or incorrect
@@ -173,12 +176,11 @@ const fetchNewQuestion = () => {
 validatingAnswers = () => {
     choices.forEach((choice) => {
         choice.addEventListener("click", event => {
-            if (!acceptingAnswers) return;
-        
-            acceptingAnswers = false;
             const clickedChoice = event.target;
             const clickedAnswer = clickedChoice.dataset.number;
-
+            if (!acceptingAnswers) return;
+            acceptingAnswers = false;
+            
             if (clickedAnswer == currentQuestion.answer) {
                 clickedChoice.classList.add('correct');
                 feedbackMessageCorrectRef.classList.remove('hide');
@@ -192,9 +194,9 @@ validatingAnswers = () => {
                     fetchNewQuestion();
                 }, 1500);
             } else {
+                const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
                 clickedChoice.classList.add('incorrect');
                 feedbackMessageIncorrectRef.classList.remove('hide');
-                const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
                 feedbackMessageIncorrectRef.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
                 setTimeout ( () => {
                     clickedChoice.classList.remove('incorrect');
