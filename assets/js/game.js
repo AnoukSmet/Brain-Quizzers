@@ -1,6 +1,4 @@
-/**
- * Defining variables 
- */
+
 
 const categorySelectionRef = document.querySelector('#category');
 const questionRef = document.querySelector('#question');
@@ -71,7 +69,8 @@ startButtonRef.addEventListener('click', ()  => {
 * Function to retrieve the questions, formats them and passes them to the DOM 
 */
 
-    const fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`).then((fetchedQuestions) => {
+    const fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`)
+    fetchedQuestions.then((fetchedQuestions) => {
         questions = fetchedQuestions.results.map(fetchedQuestion => {
             formattedQuestion = {
                 question : fetchedQuestion.question,
@@ -96,7 +95,8 @@ startButtonRef.addEventListener('click', ()  => {
 });
 
 /**
- *  Sets question counter and score to 0 and defines the questions and get new question
+ * Sets question counter and score to 0 
+ * Defines the questions and get new question
 */
 
 const startGame = () => {
@@ -110,12 +110,34 @@ const startGame = () => {
 };
 
 /** 
- * Checks if there are any remaining questions and either ends the game with personalised message
- * If no questions are left, gets next question, update the progress bar for the question counter and gets next question + choices
+ * Checks if there are any remaining questions, if yes, gets new question
+ * Update the bar for the question counter 
+ * Gets next question + choices
 */
 
 const fetchNewQuestion = () => {
-    if (availableQuestions.length === 0) {
+    if (availableQuestions.length === 0){
+        endgame();
+    } else {
+        loaderRef.classList.add('hide');
+        questionCounter++;
+        myBarRef.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
+        myBarRef.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
+        const questionIndex = Math.floor(Math.random() * availableQuestions.length);
+        currentQuestion = availableQuestions[questionIndex];
+        questionRef.innerHTML = currentQuestion.question;   
+ 
+        choices.forEach((choice) => {
+			const number = choice.dataset.number;
+            choice.innerHTML = currentQuestion['choice' + number];
+        });
+
+/** 
+ * Function that is called when there are no questions left
+ * Displays personalised message depending on the total score of user 
+ * 
+*/
+    endgame = () => {
         gameRef.classList.add('hide');
         loaderRef.classList.add('hide');
         endscreenRef.classList.remove('hide');
@@ -130,68 +152,61 @@ const fetchNewQuestion = () => {
         } else {
             endmessageRef.innerText = "Please go hit the books!";
         } 
-    } else {
-        loaderRef.classList.add('hide');
-        questionCounter++;
-        myBarRef.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
-        myBarRef.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
-        const questionIndex = Math.floor(Math.random() * availableQuestions.length);
-        currentQuestion = availableQuestions[questionIndex];
-        questionRef.innerHTML = currentQuestion.question;   
- 
-        choices.forEach((choice) => {
-			const number = choice.dataset.number;
-            choice.innerHTML = currentQuestion['choice' + number];
-        });
+    }
 /**
- * Removes the current question from the available Questions so it will not be repeated
+ * Removes the current question from the avail Questions so it will not repeat
  */
         availableQuestions.splice(questionIndex, 1);
         acceptingAnswers = true; 
+        validatingAnswers();
     }   
 };
 
 /** 
 * Validates the selected answer and highlights either correct or incorrect
-* Depending on answer, a feedback message will be displayed with or a thumbs up or the correct answer 
-* 2 Time out functions depending on if answer was correct or not. More time when incorrect so user has enough time to read correct answer
+* When answer is correct, thumbs up will be displayed
+* when answer is incorrect, correct answer will be displayed 
+* 2 Time out functions depending on if answer was correct or not. 
+* More time when incorrect so user has enough time to read correct answer
 */
 
-choices.forEach((choice) => {
-    choice.addEventListener("click", event => {
-        if (!acceptingAnswers) return;
+validatingAnswers = () => {
+    choices.forEach((choice) => {
+        choice.addEventListener("click", event => {
+            if (!acceptingAnswers) return;
         
-        acceptingAnswers = false;
-        const clickedChoice = event.target;
-        const clickedAnswer = clickedChoice.dataset.number;
+            acceptingAnswers = false;
+            const clickedChoice = event.target;
+            const clickedAnswer = clickedChoice.dataset.number;
 
-        if (clickedAnswer == currentQuestion.answer) {
-            clickedChoice.classList.add('correct');
-            feedbackMessageCorrectRef.classList.remove('hide');
-            feedbackMessageCorrectRef.innerHTML = `<i class="fas fa-thumbs-up"></i>`;
-            increaseScore(pointsCorrectAnswer);
-            setTimeout ( () => {
-                clickedChoice.classList.remove('correct');
-                feedbackMessageCorrectRef.classList.add('hide');
-                feedbackMessageCorrectRef.innerText = "";
-                loaderRef.classList.remove('hide');
-                fetchNewQuestion();
-            }, 1500);
-        } else {
-            clickedChoice.classList.add('incorrect');
-            feedbackMessageIncorrectRef.classList.remove('hide');
-            const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
-            feedbackMessageIncorrectRef.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
-            setTimeout ( () => {
-                clickedChoice.classList.remove('incorrect');
-                feedbackMessageIncorrectRef.classList.add('hide');
-                feedbackMessageIncorrectRef.innerText = "";
-                loaderRef.classList.remove('hide');
-                fetchNewQuestion();
-            }, 3000);
-        }
+            if (clickedAnswer == currentQuestion.answer) {
+                clickedChoice.classList.add('correct');
+                feedbackMessageCorrectRef.classList.remove('hide');
+                feedbackMessageCorrectRef.innerHTML = `<i class="fas fa-thumbs-up"></i>`;
+                increaseScore(pointsCorrectAnswer);
+                setTimeout ( () => {
+                    clickedChoice.classList.remove('correct');
+                    feedbackMessageCorrectRef.classList.add('hide');
+                    feedbackMessageCorrectRef.innerText = "";
+                    loaderRef.classList.remove('hide');
+                    fetchNewQuestion();
+                }, 1500);
+            } else {
+                clickedChoice.classList.add('incorrect');
+                feedbackMessageIncorrectRef.classList.remove('hide');
+                const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
+                feedbackMessageIncorrectRef.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
+                setTimeout ( () => {
+                    clickedChoice.classList.remove('incorrect');
+                    feedbackMessageIncorrectRef.classList.add('hide');
+                    feedbackMessageIncorrectRef.innerText = "";
+                    loaderRef.classList.remove('hide');
+                    fetchNewQuestion();
+                }, 3000);
+            }
+        });
     });
-});
+}
 
 /** 
  * Increase score when answer is correct 
