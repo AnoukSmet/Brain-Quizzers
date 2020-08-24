@@ -100,7 +100,8 @@ body {
 select#category,
 button#end-game, 
 button#submitCategory,
-button#play-again {
+button#play-again,
+button#help {
    border:0px;
    outline:0px;
 } 
@@ -202,20 +203,24 @@ button#play-again {
 
 #total-score {
     text-align: center;
-    background-color: #545b62;    
+    /* background-color: #545b62;     */
     padding: 1rem;
     line-height: 3rem;
     height: 5rem;
     margin-bottom: 5rem;
+    font-size: 3rem;
     
 }
 
 #end-message {
     text-align: center;
-    background-color: #545b62;
+    /* background-color: #545b62; */
     padding: 1rem;
     line-height: 3rem;
     height: 5rem;
+    font-size: 3rem;
+    margin-top: 5rem;
+
 }
 
 /* Media Queries */
