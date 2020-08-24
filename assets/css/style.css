@@ -153,6 +153,7 @@ button#help {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    box-shadow: 0.2rem 0.2rem 0.1rem #2c3033;
     }
 
 /* Validating answers */
