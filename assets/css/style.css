@@ -111,6 +111,36 @@ button#help {
     background-color: #498690;
 }
 
+/* Help - Modal */
+
+#modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 50%;
+  top: 50%;
+  width: 70%; 
+  height: 50%; 
+  overflow: auto;
+  background-color: #fff;
+  color: #117a8b;
+  border-radius: 2rem;
+  text-align: center;
+  -webkit-transform:translateY(-50%);
+   -moz-transform:translateY(-50%);
+   -ms-transform:translateY(-50%);
+   -o-transform:translateY(-50%);
+   transform:translateY(-50%);
+ 
+  
+  
+}
+
+#modal-header h3{
+    font-size: 3rem;
+    text-align: center;
+}
+
 /* Progress Bar */
 
 #myBar {

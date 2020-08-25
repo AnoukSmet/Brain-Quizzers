@@ -16,6 +16,9 @@ const scoreRef = document.querySelector('#score');
 const startButtonRef = document.querySelector('#submitCategory');
 const loaderRef = document.querySelector('#loader');
 const errorMessageRef = document.querySelector('#error-message');
+const modalRef = document.querySelector('#modal');
+const helpBtnRef = document.querySelector('#help');
+const closeBtnRef = document.querySelector('#close-btn');
 const choices = Array.from(document.querySelectorAll('.choices'));
 const pointsCorrectAnswer = 10;
 const maximumQuestions = 10;
@@ -234,3 +237,11 @@ playAgainRef.addEventListener("click", () => {
     welcomeRef.classList.remove('hide');
     endscreenRef.classList.add('hide');
 });
+
+helpBtnRef.addEventListener("click", () => {
+      modalRef.style.display = "block";
+});
+
+closeBtnRef.addEventListener("click", () => {
+    modalRef.style.display ="none";
+})
