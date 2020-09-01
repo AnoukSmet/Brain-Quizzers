@@ -127,11 +127,12 @@ Below I will explain more why I choose the various colors and for what I will be
 
 ![Color Palette](wireframes/color-palette.png)
 
-* #54455F: This purple color I will use as a background for all the different pages on the website. 
-* #7C3C4A: This pink / red color I will use to highlight the buttons on the page. 
-* #FCF3EE: This will be my text color for the overall website.
+* #0d2942: This color I selected out of my background-image and is used as a fallback option in case the image doesn't load.
+* #008080: This color I used for my buttons but as well for the display of the question and score / question container
+* #577377: This color is used for the 4 possible answers to the questions, to differentiate well from the question. 
+* #f8f9f8: This will be my text color for the overall website.
 
-I have used to contract checker on Coolors in order to make sure that the contract is sufficient.
+I have used a contract checker in order to make sure that the contract is sufficient.
 This way my content will be easily readable. 
 In order to make sure my website is also user friendly for visually impaired users, I have used [Color Filter](http://colorfilter.wickline.org/).
 
