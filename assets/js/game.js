@@ -239,9 +239,14 @@ playAgainRef.addEventListener("click", () => {
 });
 
 helpBtnRef.addEventListener("click", () => {
-      modalRef.style.display = "block";
+    welcomeRef.classList.add('hide');
+    modalRef.style.display = "inline-block";
+          
+
 });
 
 closeBtnRef.addEventListener("click", () => {
     modalRef.style.display ="none";
+    welcomeRef.classList.remove('hide');
+
 })

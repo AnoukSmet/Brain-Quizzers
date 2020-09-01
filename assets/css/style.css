@@ -69,7 +69,7 @@ body {
 
 #category {
     background-color: #117a8b;
-    color: #FCF3EE;
+    color: rgb(212, 201, 195);
     margin: 3rem 0;
     text-align-last: center; 
     height: 5rem;
@@ -114,26 +114,18 @@ button#help {
 /* Help - Modal */
 
 #modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; 
-  left: 50%;
-  top: 50%;
-  width: 70%; 
-  height: 50%; 
-  overflow: auto;
-  background-color: #fff;
-  color: #117a8b;
-  border-radius: 2rem;
-  text-align: center;
-  -webkit-transform:translateY(-50%);
-   -moz-transform:translateY(-50%);
-   -ms-transform:translateY(-50%);
-   -o-transform:translateY(-50%);
-   transform:translateY(-50%);
- 
-  
-  
+    display: none;
+    overflow: auto;
+    background-color: #FCF3EE;
+    color: #117a8b;
+    border-radius: 2rem;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    transform: translate(-50%, -10%);
+    padding: 1rem;
+    margin: 0 1rem;
 }
 
 #modal-header h3{
