@@ -16,6 +16,7 @@ body {
     cursor: default;
 }
 
+/* Background Image */
 
 #background-image {
     background-image: url('../images/background-image.jpg');
@@ -44,7 +45,6 @@ body {
 #loader-container {
     display: flex;
 }  
-
 
 #loader {
     background-image: url("../images/loader.gif");
@@ -80,6 +80,7 @@ body {
     border-color: #498690;
     background-color: #498690;
 }
+
 /* Buttons */
 
 .button-container {
@@ -147,7 +148,6 @@ button#help {
 
 /* Questions */
  
-
 #question {
     text-align: center;
     background-color: #009688;
@@ -173,7 +173,7 @@ button#help {
     align-items: center;
     cursor: pointer;
     box-shadow: 0.2rem 0.2rem 0.1rem #2c3033;
-    }
+}
 
 /* Validating answers */
 
@@ -196,7 +196,7 @@ button#help {
     margin-top: 2rem;
     padding: 0 1rem;
     display: inline-block;
-    }
+}
 
 #correct-answer {
     font-size: 4rem;
@@ -204,6 +204,7 @@ button#help {
 } 
 
 /* Scores */
+
 #score-container {
     text-align: center;
     margin-bottom: 1rem;
@@ -223,24 +224,20 @@ button#help {
 
 #total-score {
     text-align: center;
-    /* background-color: #545b62;     */
     padding: 1rem;
     line-height: 3rem;
     height: 5rem;
     margin-bottom: 5rem;
     font-size: 3rem;
-    
 }
 
 #end-message {
     text-align: center;
-    /* background-color: #545b62; */
     padding: 1rem;
     line-height: 3rem;
     height: 5rem;
     font-size: 3rem;
     margin-top: 5rem;
-
 }
 
 /* Media Queries */
@@ -256,7 +253,7 @@ button#help {
     .page-title {
         font-size: 6rem;
         margin-top: 5rem;
-        }
+    }
 
     #category {
         width: 35rem;
@@ -291,10 +288,10 @@ button#help {
     #myBar {
         margin-top: 2rem;
     }
+
     #myBarProgress {
         font-size: 1.5rem;
     }
-
 
     .buttons {
         margin-top: 2rem;
