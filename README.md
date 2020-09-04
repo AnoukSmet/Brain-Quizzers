@@ -233,6 +233,8 @@ You can find my wireframes below:
 
 ### Category Selection
 
+#### User story:  As a user, I would like to be able to pick a category
+
 * **Plan**  
 When page is loaded, the user should have the possibility to choose the category for the game they want to play. 
 The user shouldn't be able to proceed when no category is chosen.
@@ -251,6 +253,8 @@ Category selection works as planned and shows nicely on the various browsers and
 The test has passed all the criteria and works like planned.
 
 ### Answer Validation
+
+#### User stories: As a user, I would like to know the correct answer when answered incorrectly.
 
 * **Plan**  
 When correct answer was selected, the choice should highlight in a green color and show a 'thumbs up' icon. 
@@ -272,6 +276,8 @@ Answer validation is working as expected on different browsers and devices.
 The test has passed all the criteria and works like planned.
 
 ### Question Counter
+
+#### User story: As a user, I want to know where I am in the game, to know how many questions I still have left. 
 
 * **Plan**  
 Original plan was to have a question counter next to the score on the game. 
@@ -297,6 +303,8 @@ The test has passed all the criteria and works like planned.
 
 ### Score Tracker
 
+#### User story: As a user, I would like to track my score during the game. 
+
 * **Plan**  
 The plan was to implement a field above the question, displaying the current score of the user which increases when the user selects correct answer.
 Final result should be displayed on the end screen after completing the game. 
@@ -318,6 +326,7 @@ Score display and total score is working as planned across various browsers and 
 The test has passed all the criteria and works like planned.
 
 ### Personalised message on end screen
+
 * **Plan**   
 On the endscreen after completing the game, I wanted to have a personalised message depending on the final score that the user got. 
 

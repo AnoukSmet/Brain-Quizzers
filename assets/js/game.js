@@ -168,7 +168,7 @@ endgame = () => {
     } else {
         endmessageRef.innerText = "Please go hit the books!";
     } 
-}
+};
 
 /** 
  * Validates the selected answer and highlights either correct or incorrect
