@@ -200,17 +200,18 @@ button#help {
 
 #feedback-container {
     text-align: center;
+    height: 7.5rem;
 }
 
 #incorrect-answer {
     background-color: #f44336;
-    margin-top: 1rem;
+    margin-top: 2rem;
     padding: 0 1rem;
     display: inline-block;
 }
 
 #correct-answer {
-    margin-top: 1rem;
+    margin: 1rem 0;
     padding: 0 1rem;
     font-size: 4rem;
     color: #4CAF50;
@@ -252,6 +253,7 @@ button#help {
     height: 5rem;
     margin-bottom: 3rem;
     font-size: 2rem;
+    width: 100%;
 }
 
 #end-message {
