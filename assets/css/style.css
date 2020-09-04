@@ -97,6 +97,7 @@ body {
     background-color: #008080;
     border-radius: 1rem;
     padding: 1rem;
+    margin-bottom: 1rem;
 }
 
 select#category,
