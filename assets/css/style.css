@@ -87,6 +87,7 @@ body {
 .button-container {
     text-align: center;
     margin: 3rem 0;
+    background-color: transparent;
 } 
 
 .button-container a {
@@ -232,6 +233,10 @@ button#help {
 /* Endscreen */
 
 #endscreen {
+    text-align: center;
+}
+
+#end-message-container {
     text-align: center;
 }
 
