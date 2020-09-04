@@ -21,6 +21,7 @@ body {
 #background-image {
     background-image: url('../images/background-image.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
 } 
 
 /* Hide class */
@@ -229,6 +230,10 @@ button#help {
 }
 
 /* Endscreen */
+
+#endscreen {
+    text-align: center;
+}
 
 #total-score {
     text-align: center;
