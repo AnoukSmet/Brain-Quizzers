@@ -90,6 +90,8 @@ body {
 
 .button-container a {
     text-decoration: none;
+    margin-bottom: 1rem;
+
 }
 
 .buttons {
@@ -234,8 +236,8 @@ button#help {
     padding: 1rem;
     line-height: 3rem;
     height: 5rem;
-    margin-bottom: 5rem;
-    font-size: 3rem;
+    margin-bottom: 3rem;
+    font-size: 2rem;
 }
 
 #end-message {
@@ -244,8 +246,8 @@ button#help {
     padding: 1rem;
     line-height: 3rem;
     height: 5rem;
-    font-size: 3rem;
-    margin-top: 5rem;
+    font-size: 2rem;
+    margin-top: 3rem;
 }
 
 /* Media Queries */
@@ -309,10 +311,12 @@ button#help {
 
     #total-score {
         margin-bottom: 10rem; 
+        font-size: 3rem;
     }
 
     #end-message {
         margin-bottom: 1rem;
         margin-top: 3rem;
+        font-size: 3rem;
     }
 }
