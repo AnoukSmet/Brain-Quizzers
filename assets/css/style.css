@@ -70,6 +70,7 @@ body {
 #category {
     background-color: #008080;
     color: #F8F9F8;
+    font-size: 2rem;
     margin: 3rem 0;
     text-align-last: center; 
     height: 5rem;
@@ -87,13 +88,14 @@ body {
 
 .button-container {
     text-align: center;
-    margin: 3rem 0;
+    margin: 1rem 0;
     background-color: transparent; 
 } 
 
 .button-container a {
     text-decoration: none;
     margin-bottom: 1rem;
+    font-size: 2rem;
 }
 
 .buttons {
@@ -162,12 +164,11 @@ button#help {
     text-align: center;
     background-color: #008080;
     margin: 1rem 0;
-    height: 7.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2rem;
-    font-size: 1.5rem;
+    padding: 1rem;
+    font-size: 1.6rem;
 }
 
 /* Choices */
@@ -203,14 +204,17 @@ button#help {
 
 #incorrect-answer {
     background-color: #f44336;
-    margin-top: 2rem;
+    margin-top: 1rem;
     padding: 0 1rem;
     display: inline-block;
 }
 
 #correct-answer {
+    margin-top: 1rem;
+    padding: 0 1rem;
     font-size: 4rem;
     color: #4CAF50;
+    display: inline-block;
 } 
 
 /* Scores */

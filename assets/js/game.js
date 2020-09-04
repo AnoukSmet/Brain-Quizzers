@@ -73,8 +73,8 @@ startButtonRef.addEventListener('click', ()  => {
 */
 
     const fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`)
-    fetchedQuestions.then((fetchedQuestions) => {
-        questions = fetchedQuestions.results.map(fetchedQuestion => {
+    fetchedQuestions.then((data) => {
+        questions = data.results.map(fetchedQuestion => {
             formattedQuestion = {
                 question : fetchedQuestion.question,
             };
