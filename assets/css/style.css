@@ -112,6 +112,8 @@ button#help {
 
 /* Help - Modal */
 
+
+
 #modal {
     display: none;
     overflow: auto;
@@ -260,9 +262,9 @@ button#help {
     }
     
     #modal {
-    left: 20%;
-    transform: translate(-13%);
-    }
+    left: 50%;
+    transform: translate(-50%);
+    } 
 
     /* Game Section */
 
