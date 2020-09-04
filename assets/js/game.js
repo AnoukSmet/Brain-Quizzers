@@ -159,6 +159,8 @@ endgame = () => {
     endscoreRef.innerText = score + " / " + maximumScore;
     if (score === (maximumQuestions * pointsCorrectAnswer)) {
         endmessageRef.innerText = "Congratulations, perfect score!";
+    } else if (score >= ((maximumQuestions / 5 * 4 ) * pointsCorrectAnswer)) {
+        endmessageRef.innerText = "Congratulations! Almost a perfect score!";
     } else if (score >= ((maximumQuestions / 2) * pointsCorrectAnswer)) {
         endmessageRef.innerText = "Congratulations! Above average!";
     } else if (score > ((maximumQuestions/5) * pointsCorrectAnswer)){
