@@ -21,8 +21,9 @@ body {
 
 #background-image {
     background-image: url('../images/background-image.jpg');
-    background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
+    height: 100%;
 } 
 
 /* Hide class */
@@ -88,13 +89,12 @@ body {
 .button-container {
     text-align: center;
     margin: 3rem 0;
-    background-color: transparent;
+    background-color: transparent; 
 } 
 
 .button-container a {
     text-decoration: none;
     margin-bottom: 1rem;
-
 }
 
 .buttons {
