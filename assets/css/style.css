@@ -20,9 +20,12 @@ body {
 /* Background Image */
 
 #background-image {
-    background-image: url('../images/background-image.jpg');
-    background-repeat: no-repeat;
-    height: 100%;
+    background: url('../images/background-image.jpg') no-repeat center center fixed;
+    min-height: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 } 
 
 /* Hide class */
@@ -119,7 +122,10 @@ button#help {
     border-color: #498690;
     background-color: #498690;
     color: #F8F9F8;
+}
 
+#end-game {
+    margin-bottom: 1rem;
 }
 
 /* Help - Modal */
@@ -143,7 +149,13 @@ button#help {
     margin-bottom: 1rem;
 }
 
-/* Progress Bar */
+/* Game Page */ 
+
+#game {
+    margin-bottom: 3rem;
+}
+
+    /* Progress Bar */
 
 #questionCounterContainer {
     width: 100%;
@@ -158,7 +170,7 @@ button#help {
     text-align: center;
 }
 
-/* Questions */
+    /* Questions */
  
 #question {
     text-align: center;
@@ -171,7 +183,7 @@ button#help {
     font-size: 1.6rem;
 }
 
-/* Choices */
+    /* Choices */
 
 .choices {
     background-color: #577377;
@@ -186,7 +198,7 @@ button#help {
     box-shadow: 0.2rem 0.2rem 0.1rem #2c3033;
 }
 
-/* Validating answers */
+    /* Validating answers */
 
 .correct {
     background-color: #4CAF50;
@@ -218,7 +230,7 @@ button#help {
     display: inline-block;
 } 
 
-/* Scores */
+    /* Scores */
 
 #score-container {
     text-align: center;
@@ -267,13 +279,6 @@ button#help {
 }
 
 /* Media Queries */
-
-
-@media (min-width: 700px){
-    #background-image {
-        background-size: cover;
-    }
-}
 
 @media (min-width: 800px) {
 
