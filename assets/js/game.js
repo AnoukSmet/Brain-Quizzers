@@ -54,19 +54,20 @@ fetchedCategories.then((result) => {
     });
 });
 
+
 /**
  * Function to retrieve category Id when category is selected 
  */
 
 startButtonRef.addEventListener('click', ()  => {
-    welcomeRef.classList.add('hide');
-    loaderRef.classList.remove('hide');
-    categoryId = categorySelectionRef.value;
     if (categorySelectionRef.value === "") { 
         return;
     } else {
+        welcomeRef.classList.add('hide');
+        loaderRef.classList.remove('hide');
         categoryId = categorySelectionRef.value;
     }
+    
 
 /** 
 * Function to retrieve the questions, formats them and passes them to the DOM 
@@ -161,7 +162,7 @@ endgame = () => {
         endmessageRef.innerText = "Congratulations, perfect score!";
     } else if (score >= ((maximumQuestions / 5 * 4 ) * pointsCorrectAnswer)) {
         endmessageRef.innerText = "Congratulations! Almost a perfect score!";
-    } else if (score >= ((maximumQuestions / 2) * pointsCorrectAnswer)) {
+    } else if (score > ((maximumQuestions / 2) * pointsCorrectAnswer)) {
         endmessageRef.innerText = "Congratulations! Above average!";
     } else if (score > ((maximumQuestions/5) * pointsCorrectAnswer)){
         endmessageRef.innerText = "Not bad, try again and beat your own score!";
