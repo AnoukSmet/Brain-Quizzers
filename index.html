@@ -15,6 +15,8 @@
 </head>
 <body id="background-image">
 
+<!-- Loader -->
+
     <div id="loader-container">
         <div id="loader" class="hide"></div>
     </div>
@@ -30,8 +32,8 @@
                 <select id="category" aria-label="category"></select>
             </div>
             <div class="col-12 button-container">
-                <button id="submitCategory" class="buttons">Play Game</button>
-                <button id="help" class="buttons">How to Play</button>
+                <a href="#game" id="submitCategory" class="buttons">Play Game</a>
+                <a href="#modal" id="help" class="buttons">How to Play</a>
             </div>
             <div>
                 <p id="error-message"></p>
@@ -51,9 +53,9 @@
                 <p id="score-text">Your score is: <span id="score"></span></p>        
             </div>
             <div class="col-12">
-                <div id="myBar">
-                    <div id="myBarProgress">
-                        <span id="questionCounter"></span>
+                <div id="questionCounterContainer">
+                    <div id="questionCounter">
+                        <span id="questionCounterText"></span>
                     </div>
                 </div>
                  <h2 id="question"></h2>  
@@ -75,7 +77,7 @@
                 <p id="correct-answer" class="hide"></p>
             </div>
             <div class="col-12 button-container">
-                <button class="buttons" id="end-game">Restart game</button>
+                <a href="#welcome" id="end-game" class="buttons">Restart Game</a>
             </div>
         </div>
         </div>
@@ -91,8 +93,8 @@
                 <p id="end-message"></p>
                 <p id="total-score">Your total score is: <span id="endscore"></span></p>
             </div>
-            <div class="col-12 button-container">
-                <button id="play-again" class="buttons">Play again!</button>
+            <div class="col-12 button-container">            
+                <a href="#welcome" id="play-again" class="buttons">Play again!</a>
             </div>
         </div>
     </section>
@@ -111,7 +113,7 @@
             <li>A new question will automatically be loaded until you have answered all the questions.</li>
         </ul>
     </div>
-    <button class="buttons" id="close-btn">Ok, I understand</button>
+    <a href="#welcome" class="buttons" id="close-btn">Ok, I understand!</a>
 </div>
 
 <!-- Link to javascript file -->    

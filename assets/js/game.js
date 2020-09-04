@@ -9,7 +9,7 @@ const welcomeRef = document.querySelector('#welcome');
 const endscreenRef = document.querySelector('#endscreen');
 const endscoreRef = document.querySelector('#endscore');
 const endmessageRef = document.querySelector('#end-message');
-const myBarRef = document.querySelector('#myBarProgress');
+const questionCounterRef = document.querySelector('#questionCounter');
 const endGameRef = document.querySelector('#end-game');
 const playAgainRef = document.querySelector('#play-again');
 const scoreRef = document.querySelector('#score');
@@ -32,7 +32,7 @@ let categories;
 
 /**
  * Fetches the data from the API and converts results to json
- */
+*/
 
 const fetchData = (url) => {
     return fetch(url).then(res => res.json())
@@ -44,7 +44,7 @@ const fetchData = (url) => {
 
 /**
  * Function to retrieve the categories and pass them to the DOM
- */
+*/
 
 const fetchedCategories = fetchData("https://opentdb.com/api_category.php");
 fetchedCategories.then((result) => {
@@ -57,7 +57,7 @@ fetchedCategories.then((result) => {
 
 /**
  * Function to retrieve category Id when category is selected 
- */
+*/
 
 startButtonRef.addEventListener('click', ()  => {
     if (categorySelectionRef.value === "") { 
@@ -70,7 +70,7 @@ startButtonRef.addEventListener('click', ()  => {
     
 
 /** 
-* Function to retrieve the questions, formats them and passes them to the DOM 
+ * Function to retrieve the questions, formats them and passes them to the DOM 
 */
 
     const fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`)
@@ -108,7 +108,7 @@ const startGame = () => {
     score = 0;
     scoreRef.innerText = score;
     availableQuestions = [... questions];
-    fetchNewQuestion();
+    getNewQuestion();
     loaderRef.classList.add('hide');
     gameRef.classList.remove('hide');
 };
@@ -119,15 +119,15 @@ const startGame = () => {
  * Gets next question + choices
 */
 
-const fetchNewQuestion = () => {
+const getNewQuestion = () => {
     if (availableQuestions.length === 0){
         endgame();
     } else {
         const questionIndex = Math.floor(Math.random() * availableQuestions.length);
         loaderRef.classList.add('hide');
         questionCounter++;
-        myBarRef.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
-        myBarRef.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
+        questionCounterRef.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
+        questionCounterRef.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
         currentQuestion = availableQuestions[questionIndex];
         questionRef.innerHTML = currentQuestion.question;   
  
@@ -149,7 +149,6 @@ const fetchNewQuestion = () => {
 /** 
  * Function that is called when there are no questions left
  * Displays personalised message depending on the total score of user 
- * 
 */
 
 endgame = () => {
@@ -172,11 +171,11 @@ endgame = () => {
 }
 
 /** 
-* Validates the selected answer and highlights either correct or incorrect
-* When answer is correct, thumbs up will be displayed
-* when answer is incorrect, correct answer will be displayed 
-* 2 Time out functions depending on if answer was correct or not. 
-* More time when incorrect so user has enough time to read correct answer
+ * Validates the selected answer and highlights either correct or incorrect
+ * When answer is correct, thumbs up will be displayed
+ * when answer is incorrect, correct answer will be displayed 
+ * 2 Time out functions depending on if answer was correct or not. 
+ * More time when incorrect so user has enough time to read correct answer
 */
 
 validatingAnswers = () => {
@@ -197,7 +196,7 @@ validatingAnswers = () => {
                     feedbackMessageCorrectRef.classList.add('hide');
                     feedbackMessageCorrectRef.innerText = "";
                     loaderRef.classList.remove('hide');
-                    fetchNewQuestion();
+                    getNewQuestion();
                 }, 1500);
             } else {
                 const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
@@ -209,7 +208,7 @@ validatingAnswers = () => {
                     feedbackMessageIncorrectRef.classList.add('hide');
                     feedbackMessageIncorrectRef.innerText = "";
                     loaderRef.classList.remove('hide');
-                    fetchNewQuestion();
+                    getNewQuestion();
                 }, 3000);
             }
         });
