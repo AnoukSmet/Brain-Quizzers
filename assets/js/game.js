@@ -1,5 +1,4 @@
 
-
 const categorySelectionRef = document.querySelector('#category');
 const questionRef = document.querySelector('#question');
 const feedbackMessageIncorrectRef = document.querySelector('#incorrect-answer');
@@ -163,7 +162,7 @@ endgame = () => {
         endmessageRef.innerText = "Congratulations! Almost a perfect score!";
     } else if (score > ((maximumQuestions / 2) * pointsCorrectAnswer)) {
         endmessageRef.innerText = "Congratulations! Above average!";
-    } else if (score > ((maximumQuestions/5) * pointsCorrectAnswer)){
+    } else if (score >= ((maximumQuestions/5) * pointsCorrectAnswer)){
         endmessageRef.innerText = "Not bad, try again and beat your own score!";
     } else {
         endmessageRef.innerText = "Please go hit the books!";
