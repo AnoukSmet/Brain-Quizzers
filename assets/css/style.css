@@ -22,7 +22,6 @@ body {
 #background-image {
     background-image: url('../images/background-image.jpg');
     background-repeat: no-repeat;
-    background-position: center;
     height: 100%;
 } 
 
@@ -102,7 +101,7 @@ body {
     background-color: #008080;
     border-radius: 1rem;
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 }
 
 select#category,
@@ -131,7 +130,7 @@ button#help {
     border-radius: 2rem;
     text-align: center;
     position: absolute;
-    top: 10%;
+    top: 2%;
     padding: 1rem;
     margin: 0 1rem;
 }
@@ -262,6 +261,13 @@ button#help {
 }
 
 /* Media Queries */
+
+
+@media (min-width: 700px){
+    #background-image {
+        background-size: cover;
+    }
+}
 
 @media (min-width: 800px) {
 
