@@ -72,10 +72,10 @@ startButtonRef.addEventListener('click', ()  => {
  * Function to retrieve the questions, formats them and passes them to the DOM 
 */
 
-    const fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`)
+    const fetchedQuestions = fetchData(`https://opentdb.com/api.php?amount=10&category=${categoryId}&type=multiple`);
     fetchedQuestions.then((data) => {
         questions = data.results.map(fetchedQuestion => {
-            formattedQuestion = {
+            const formattedQuestion = {
                 question : fetchedQuestion.question,
             };
 
@@ -150,7 +150,7 @@ const getNewQuestion = () => {
  * Displays personalised message depending on the total score of user 
 */
 
-endgame = () => {
+const endgame = () => {
     const maximumScore = maximumQuestions * pointsCorrectAnswer;
     gameRef.classList.add('hide');
     loaderRef.classList.add('hide');
@@ -177,7 +177,7 @@ endgame = () => {
  * More time when incorrect so user has enough time to read correct answer
 */
 
-validatingAnswers = () => {
+const validatingAnswers = () => {
     choices.forEach((choice) => {
         choice.addEventListener("click", event => {
             const clickedChoice = event.target;
@@ -212,13 +212,13 @@ validatingAnswers = () => {
             }
         });
     });
-}
+};
 
 /** 
  * Increase score when answer is correct 
 */
 
-increaseScore = num => {
+const increaseScore = num => {
     score += num;
     scoreRef.innerText = score;
 };
@@ -249,5 +249,4 @@ helpBtnRef.addEventListener("click", () => {
 closeBtnRef.addEventListener("click", () => {
     modalRef.style.display ="none";
     welcomeRef.classList.remove('hide');
-
-})
+});
