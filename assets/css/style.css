@@ -240,8 +240,9 @@ button#help {
 
 #score-text {
     background-color: #008080;
-    width: 17rem;
-    height: 4rem;
+    display: inline-block;
+    /* width: 17rem;
+    height: 4rem; */
     line-height: 2rem;
     padding: 1rem; 
     margin: auto;
