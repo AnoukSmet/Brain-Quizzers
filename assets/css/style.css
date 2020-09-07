@@ -78,12 +78,10 @@ body {
     text-align-last: center; 
     height: 5rem;
     width: 25rem;
-    border: 2px solid #008080;
     border-radius: 1rem;
 }
 
 #category:hover {
-    border-color: #498690;
     background-color: #498690;
 }
 
@@ -119,7 +117,6 @@ button#help {
 } 
    
 .buttons:hover {
-    border-color: #498690;
     background-color: #498690;
     color: #F8F9F8;
 }
@@ -202,12 +199,10 @@ button#help {
 
 .correct {
     background-color: #4CAF50;
-    border-color: #4CAF50;
 }
 
 .incorrect {
     background-color: #f44336;
-    border-color: #f44336;
 }
 
 #feedback-container {
@@ -241,8 +236,6 @@ button#help {
 #score-text {
     background-color: #008080;
     display: inline-block;
-    /* width: 17rem;
-    height: 4rem; */
     line-height: 2rem;
     padding: 1rem; 
     margin: auto;
