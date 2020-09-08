@@ -128,7 +128,7 @@ button#help {
 }
 
 #end-game {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 }
 
 /* Help - Modal */
@@ -193,7 +193,7 @@ button#help {
     width: 100%;
     height: 5rem;
     text-align: center;
-    margin: 1rem auto 0;
+    margin: 0 auto 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -210,26 +210,6 @@ button#help {
 .incorrect {
     background-color: #f44336;
 }
-
-#feedback-container {
-    text-align: center;
-    height: 7.5rem;
-}
-
-#incorrect-answer {
-    background-color: #f44336;
-    margin-top: 2rem;
-    padding: 0 1rem;
-    display: inline-block;
-}
-
-#correct-answer {
-    margin: 1rem 0;
-    padding: 0 1rem;
-    font-size: 4rem;
-    color: #4CAF50;
-    display: inline-block;
-} 
 
     /* Scores */
 

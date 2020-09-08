@@ -1,8 +1,6 @@
 
 const categorySelectionRef = document.querySelector('#category');
 const questionRef = document.querySelector('#question');
-const feedbackMessageIncorrectRef = document.querySelector('#incorrect-answer');
-const feedbackMessageCorrectRef = document.querySelector('#correct-answer');
 const gameRef = document.querySelector('#game');
 const welcomeRef = document.querySelector('#welcome');
 const endscreenRef = document.querySelector('#endscreen');
@@ -171,8 +169,9 @@ const endgame = () => {
 
 /** 
  * Validates the selected answer and highlights either correct or incorrect
- * When answer is correct, thumbs up will be displayed
- * when answer is incorrect, correct answer will be displayed 
+ * When answer is correct, the selected answer will highlight green
+ * when answer is incorrect, the selected answer will highlight red
+ * and the correct answer will be highlighted green with a time out of 0.5sec
  * 2 Time out functions depending on if answer was correct or not. 
  * More time when incorrect so user has enough time to read correct answer
 */
@@ -187,25 +186,23 @@ const validatingAnswers = () => {
             
             if (clickedAnswer == currentQuestion.answer) {
                 clickedChoice.classList.add('correct');
-                feedbackMessageCorrectRef.classList.remove('hide');
-                feedbackMessageCorrectRef.innerHTML = `<i class="fas fa-thumbs-up"></i>`;
                 increaseScore(pointsCorrectAnswer);
                 setTimeout ( () => {
                     clickedChoice.classList.remove('correct');
-                    feedbackMessageCorrectRef.classList.add('hide');
-                    feedbackMessageCorrectRef.innerText = "";
                     loaderRef.classList.remove('hide');
                     getNewQuestion();
                 }, 1500);
             } else {
-                const correctAnswer = currentQuestion['choice' + currentQuestion.answer];
+                const correctAnswerText = currentQuestion['choice' + currentQuestion.answer];
+                const correctAnswerNumber = currentQuestion.answer;
+                const correctAnswer = document.querySelector(`[data-number="${correctAnswerNumber}"]`);
                 clickedChoice.classList.add('incorrect');
-                feedbackMessageIncorrectRef.classList.remove('hide');
-                feedbackMessageIncorrectRef.innerHTML = `The correct answer is: <strong>${correctAnswer}</strong>`;
+                setTimeout( () => {
+                    correctAnswer.classList.add('correct');
+                }, 500);
                 setTimeout ( () => {
                     clickedChoice.classList.remove('incorrect');
-                    feedbackMessageIncorrectRef.classList.add('hide');
-                    feedbackMessageIncorrectRef.innerText = "";
+                    correctAnswer.classList.remove('correct');
                     loaderRef.classList.remove('hide');
                     getNewQuestion();
                 }, 3000);
