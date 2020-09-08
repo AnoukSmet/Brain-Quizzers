@@ -44,8 +44,8 @@ body {
 
 .page-title {
     text-align: center;
-    margin: 2rem auto;
-    font-size: 4.5rem;
+    margin: 1rem auto;
+    font-size: 3.5rem;
     font-family: "Kalam", sans-serif;
     font-weight: 800;
     color: #F8F9F8
@@ -216,7 +216,6 @@ button#help {
 #score-container {
     text-align: center;
     margin-bottom: 1rem;
-    margin-top: 1rem;
 }
 
 #score-text {
@@ -283,6 +282,11 @@ button#help {
     } 
 
     /* Game Section */
+
+    .page-title {
+        margin: 2rem auto;
+        font-size: 4.5rem;
+    }
 
     #question {
         margin: 1rem 0;
