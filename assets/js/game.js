@@ -7,16 +7,20 @@ const endscreenRef = document.querySelector('#endscreen');
 const endscoreRef = document.querySelector('#endscore');
 const endmessageRef = document.querySelector('#end-message');
 const questionCounterRef = document.querySelector('#questionCounter');
-const endGameRef = document.querySelector('#end-game');
+const restartRef = document.querySelector('#restart');
 const playAgainRef = document.querySelector('#play-again');
 const scoreRef = document.querySelector('#score');
 const startButtonRef = document.querySelector('#submitCategory');
 const loaderRef = document.querySelector('#loader');
 const errorMessageRef = document.querySelector('#error-message');
 const modalRef = document.querySelector('#modal');
+const restartModalRef = document.querySelector('#restart-modal')
 const helpBtnRef = document.querySelector('#help');
 const closeBtnRef = document.querySelector('#close-btn');
+const yesRef = document.querySelector('#yes')
+const noRef = document.querySelector('#no')
 const choices = Array.from(document.querySelectorAll('.choices'));
+const options = Array.from(document.querySelectorAll('.options'));
 const pointsCorrectAnswer = 10;
 const maximumQuestions = 10;
 let questions = [];
@@ -225,10 +229,29 @@ const increaseScore = num => {
 */ 
 
 
-endGameRef.addEventListener("click", () => {
+restartRef.addEventListener("click", () => {
     gameRef.classList.add('hide');
-    welcomeRef.classList.remove('hide');
+    restartModalRef.style.display = 'inline-block';
+    confirmAnswer();
 });
+
+confirmAnswer = () => {
+    options.forEach((option) => {
+        option.addEventListener("click", event => {
+            const clickedOption = event.target;
+            const clickedOptionId = clickedOption.id;
+            if (clickedOptionId == 'yes') {
+                restartModalRef.style.display = 'none';
+                welcomeRef.classList.remove('hide');
+            } else {
+                restartModalRef.style.display = 'none';
+                gameRef.classList.remove('hide');
+            }
+        });
+    });
+};
+
+
 
 playAgainRef.addEventListener("click", () => {
     gameRef.classList.add('hide');
@@ -238,9 +261,7 @@ playAgainRef.addEventListener("click", () => {
 
 helpBtnRef.addEventListener("click", () => {
     welcomeRef.classList.add('hide');
-    modalRef.style.display = "inline-block";
-          
-
+    modalRef.style.display = "inline-block";      
 });
 
 closeBtnRef.addEventListener("click", () => {
