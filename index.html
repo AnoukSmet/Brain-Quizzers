@@ -1,129 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-<meta name="description" content="Trivia Game, Category: books, films, music, art, tv, movies, video games, entertainment, science, nature, mythology, sports">
-<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-<link rel="stylesheet" type = "text/css" href="assets/css/style.css">
-<title>Brain Quizzers</title>
-</head>
-<body id="background-image">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="description" content="Trivia Game, Category: books, films, music, art, tv, movies, video games, entertainment, science, nature, mythology, sports">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+        <link rel="stylesheet" type = "text/css" href="assets/css/style.css">
+        <title>Brain Quizzers</title>
+    </head>
+
+    <body id="background-image">
 
 <!-- Loader -->
 
-    <div id="loader-container">
-        <div id="loader" class="hide"></div>
-    </div>
-
-<!-- Welcome Section -->
-    <section class="container" id="welcome">
-        <div class="row">
-            <div class="col-12">
-                <h1 class="page-title">Welcome to Brain Quizzers!</h1>
-            </div>
-            <div class="col-12" id="category-container">
-                <h2 id="category-title">Choose your category</h2>
-                <select id="category" aria-label="category"></select>
-            </div>
-            <div class="col-12 button-container">
-                <a href="#game" id="submitCategory" class="buttons">Play Game</a>
-                <a href="#modal" id="help" class="buttons">How to Play</a>
-            </div>
-            <div>
-                <p id="error-message"></p>
-            </div>
+        <div id="loader-container">
+            <div id="loader" class="hide"></div>
         </div>
-    </section>
 
-<!-- Game Section-->
+    <!-- Welcome Section -->
+        <section class="container" id="welcome">
+            <div class="row">
+                <div class="col-12">
+                    <h1 class="page-title">Welcome to Brain Quizzers!</h1>
+                </div>
+                <div class="col-12" id="category-container">
+                    <h2 id="category-title">Choose your category</h2>
+                    <select id="category" aria-label="category"></select>
+                </div>
+                <div class="col-12 button-container">
+                    <a href="#game" id="submitCategory" class="buttons">Play Game</a>
+                    <a href="#modal" id="help" class="buttons">How to Play</a>
+                </div>
+                <div>
+                    <p id="error-message"></p>
+                </div>
+            </div>
+        </section>
 
-    <section> 
-        <div id="game" class="container hide">
+    <!-- Game Section-->
+
+        <section> 
+            <div id="game" class="container hide">
+                <div class="row" id="game-container"> 
+                    <div class="col-12">
+                        <h2 class="page-title">Brain Quizzers</h2>
+                    </div>
+                    <!-- Score container -->
+                    <div class="col-12" id="score-container">
+                        <p id="score-text">Your score is: <span id="score"></span></p>        
+                    </div>
+                    <!--  Question Counter + Displayed Question -->
+                    <div class="col-12">
+                        <div id="questionCounterContainer">
+                            <div id="questionCounter">
+                                <span id="questionCounterText"></span>
+                            </div>
+                        </div>
+                        <h2 id="question"></h2>  
+                    </div>  
+                    <!-- 4 possible answers -->
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <p class="choices" data-number="1"></p>
+                                <p class="choices" data-number="2"></p>
+                            </div>
+                            <div class="col-12 col-lg-6">
+                                <p class="choices" data-number="3"></p>
+                                <p class="choices" data-number="4"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Container where feedback will be provided for correct and incorrect answers -->
+                    <div class="col-12" id="feedback-container">
+                        <p id="incorrect-answer" class="hide"></p>
+                        <p id="correct-answer" class="hide"></p>
+                    </div>
+                    <div class="col-12 button-container">
+                        <a href="#welcome" id="end-game" class="buttons">Restart Game</a>
+                    </div>
+                </div>
+            </div>
+        </section> 
+
+    <!-- Endscreen -->
+        <section id="endscreen" class="container hide">
             <div class="row">
                 <div class="col-12">
                     <h2 class="page-title">Brain Quizzers</h2>
                 </div>
-                <!-- Score container -->
-                <div class="col-12" id="score-container">
-                    <p id="score-text">Your score is: <span id="score"></span></p>        
+                <!-- Personalised end message + total score of the game -->
+                <div class="col-12 end-message-container">
+                    <p id="end-message"></p>
+                    <p id="total-score">Your total score is: <span id="endscore"></span></p>
                 </div>
-                <!--  Question Counter + Displayed Question -->
-                <div class="col-12">
-                    <div id="questionCounterContainer">
-                        <div id="questionCounter">
-                            <span id="questionCounterText"></span>
-                        </div>
-                    </div>
-                    <h2 id="question"></h2>  
-                </div>  
-                <!-- 4 possible answers -->
-                <div class="col-12">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                            <p class="choices" data-number="1"></p>
-                            <p class="choices" data-number="2"></p>
-                        </div>
-                        <div class="col-12 col-lg-6">
-                            <p class="choices" data-number="3"></p>
-                            <p class="choices" data-number="4"></p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Container where feedback will be provided for correct and incorrect answers -->
-                <div class="col-12" id="feedback-container">
-                    <p id="incorrect-answer" class="hide"></p>
-                    <p id="correct-answer" class="hide"></p>
-                </div>
-                <div class="col-12 button-container">
-                    <a href="#welcome" id="end-game" class="buttons">Restart Game</a>
+                <div class="col-12 button-container">            
+                    <a href="#welcome" id="play-again" class="buttons">Play again!</a>
                 </div>
             </div>
-        </div>
-    </section> 
+        </section>
 
-<!-- Endscreen -->
-    <section id="endscreen" class="container hide">
-        <div class="row">
-            <div class="col-12">
-                <h2 class="page-title">Brain Quizzers</h2>
-            </div>
-            <!-- Personalised end message + total score of the game -->
-            <div class="col-12 end-message-container">
-                <p id="end-message"></p>
-                <p id="total-score">Your total score is: <span id="endscore"></span></p>
-            </div>
-            <div class="col-12 button-container">            
-                <a href="#welcome" id="play-again" class="buttons">Play again!</a>
-            </div>
+        <div id="modal">
+        <div id="modal-header">
+            <h3>How to play Brain Quizzers...</h3>
         </div>
-    </section>
-
-<div id="modal">
-    <div id="modal-header">
-        <h3>How to play Brain Quizzers...</h3>
-    </div>
-    <div id="modal-body">
-        <ul>
-            <li>Select your favorite category and click <strong>Play Game!</strong></li>
-            <li>A question from your selected category will be displayed on the screen with 4 possible answers.</li>
-            <li>Select the answer you think is the correct answer.</li>
-            <li>After you selected your answer, you will see if your answer was correct or not.</li>
-            <li>For a good answer you will get a score of 10 points, for an incorrect answer, you will not get any points.</li>
-            <li>A new question will automatically be loaded until you have answered all the questions.</li>
-        </ul>
-    </div>
-    <div class="button-container">
-        <a href="#welcome" class="buttons" id="close-btn">Ok, I understand!</a>
-    </div>
-</div>
+        <div id="modal-body">
+            <ul>
+                <li>Select your favorite category and click <strong>Play Game!</strong></li>
+                <li>A question from your selected category will be displayed on the screen with 4 possible answers.</li>
+                <li>Select the answer you think is the correct answer.</li>
+                <li>After you selected your answer, you will see if your answer was correct or not.</li>
+                <li>For a good answer you will get a score of 10 points, for an incorrect answer, you will not get any points.</li>
+                <li>A new question will automatically be loaded until you have answered all the questions.</li>
+            </ul>
+        </div>
+        <div class="button-container">
+            <a href="#welcome" class="buttons" id="close-btn">Ok, I understand!</a>
+        </div>
+        </div>
 
 <!-- Link to javascript file -->    
-<script src="assets/js/game.js"></script>
-</body>
+        <script src="assets/js/game.js"></script>
+    </body>
 </html>
