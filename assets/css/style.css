@@ -271,7 +271,7 @@ button#help {
 
 /* Media Queries */
 
-@media (min-width: 800px) {
+@media (min-width: 768px) {
 
     body {
         font-size: 2rem;
