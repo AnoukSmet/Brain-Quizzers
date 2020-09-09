@@ -23,6 +23,14 @@ body {
     height: 100%;
 }
 
+/* Error message */
+
+#error-container {
+    text-align: center;
+    color: #f44336;
+    background-color: #F8F9F8;
+}
+
 /* Background Image */
 
 #background-image {
