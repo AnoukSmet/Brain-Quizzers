@@ -24,7 +24,6 @@ If you have any feedback or questions, head over to my GitHub contact details an
         * [Expectations](#expectations)
     * [Design Choices](#design-choices)
         * [Fonts](#fonts)
-        * [Icons](#icons)
         * [Colors](#colors)
         * [Structure](#structure)
 * [Wireframes](#wireframes)
@@ -116,10 +115,6 @@ In order to find appropriate fonts for my website, I have visited [Google Fonts]
 For the title of my game, I have used the font [Kalam](https://fonts.google.com/specimen/Kalam?query=kalam "Kalam") 
 and for the main text I have used [Playfair Display](https://fonts.google.com/specimen/Playfair+Display?query=playfair "Playfair Display"). 
 The title is a handwritten fonts that give a more personal and playful feeling.
-
-<a></a>
-#### Icons
-I will use some icons for the buttons but I will make sure that the icons are self-explanatory so it doesn't confuse the user.
 
 <a></a>
 #### Colors
