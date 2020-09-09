@@ -129,7 +129,6 @@ const getNewQuestion = () => {
         questionCounterRef.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
         questionCounterRef.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
         currentQuestion = availableQuestions[questionIndex];
-        console.log(currentQuestion);
         questionRef.innerHTML = currentQuestion.question;   
  
         choices.forEach((choice) => {
