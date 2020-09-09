@@ -60,7 +60,7 @@ If you have any feedback or questions, head over to my GitHub contact details an
 
 * As a user, I would like to be able to pick a category
 * As a user, I would like to track my score during the game. 
-* As a user, I expect a variey of questions so no questions get repeated.
+* As a user, I expect a variety of questions so no questions get repeated.
 * As a user, I would like to know the correct answer when answered incorrectly.
 * As a user, I expect that the game has a nice visually appealing lay out to be in line with the game.
 * As a user of a game, the first impression is very important. 
@@ -68,7 +68,9 @@ If you have any feedback or questions, head over to my GitHub contact details an
 * As a user, I expect all the different pages to be in the same style to make it as a whole.
 * As a user I want to learn something new while playing a game. 
 * As a user, I want the webiste to be easy to use. I prefer not to have too many buttons or options. 
+* As a user, I want some extra information on how to play the game in case I don't understand it. 
 * As a user, I want to know where I am in the game, to know how many questions I still have left. 
+* As a user, I want to be able to restart the game if I don't like the questions in the category.
 
 <a></a>
 
@@ -231,7 +233,7 @@ You can find my wireframes below:
 
 ## **Testing**
 
-### Category Selection
+### **Category Selection**
 
 #### User story:  As a user, I would like to be able to pick a category
 
@@ -252,7 +254,30 @@ Category selection works as planned and shows nicely on the various browsers and
 * **Verdict**    
 The test has passed all the criteria and works like planned.
 
-### Answer Validation
+### **How to play**
+
+#### As a user, I want some extra information on how to play the game in case I don't understand it. 
+
+* **Plan**  
+When a user doesn't understand how to play the game, they should be able to click a button 'How to Play' where more information is provided. 
+
+* **Implementation**  
+By adding an extra button to the welcome section with 'How to Play' that triggers a modal. 
+In the modal, you have the steps written down in bullet points and a button that says: Ok, I understand!
+When clicking the button, the modal closes and the user can start playing the game. 
+
+* **Test**  
+I have tested the modal on various browers and devices. 
+Clicking next to the modal will not close it, the user has to press Ok, I understand in order to go back to the welcome section. 
+
+* **Result**  
+The modal works as planned and contributes to a better overall user experience.
+
+* **Verdict**  
+The test has passed all the criteria and works like planned.
+
+
+### **Answer Validation**
 
 #### User stories: As a user, I would like to know the correct answer when answered incorrectly.
 
@@ -261,21 +286,24 @@ When correct answer was selected, the choice should highlight in a green color a
 When the wrong answer was selected, the choice should highlight in a red color and a message should show with the correct answer.
 
 * **Implementation**  
-Adding a function in game.js which validates the answer and adds classes to highlight the relevant choice and message.
+Adding a function in game.js which validates the answer and adds classes to highlight the relevant choice and display relevant message in a feedback-container.
 Added a setTimeout function to make sure that the user has sufficient time to see if answer was correct or not. 
 I added more time to the Timeout function when answered incorrectly to make sure the user has enough time to read correct answer.
 
 * **Test**  
 I tested the answer validation across various devices and browers to make sure it works as planned.
-Relevant color and message is being highlighted.
+Upon testing on mobile devices, I discovered that on the smallest devices the game wasn't very userfriendly. 
+When you start the game, the restart button was invisible due to the empty feedback container for the thumbs up / correct answer.
+I decided to remove the feedbackcontainer and just highlight the correct answer in green when answered correctly. 
+When answered incorrectly, the selected answer highlights red and 0.5 second later the correct answer will be highlighted in green. 
 
 * **Result**  
-Answer validation is working as expected on different browsers and devices.
+Answer validation is working as expected and is more user friendly due to the full game being displayed on the screen on small devices. 
 
 * **Verdict**   
 The test has passed all the criteria and works like planned.
 
-### Question Counter
+### **Question Counter**
 
 #### User story: As a user, I want to know where I am in the game, to know how many questions I still have left. 
 
@@ -301,7 +329,7 @@ Progress bar works as planned across various devices and browsers.
 * **Verdict**   
 The test has passed all the criteria and works like planned.
 
-### Score Tracker
+### **Score Tracker**
 
 #### User story: As a user, I would like to track my score during the game. 
 
@@ -325,7 +353,33 @@ Score display and total score is working as planned across various browsers and 
 * **Verdict**   
 The test has passed all the criteria and works like planned.
 
-### Personalised message on end screen
+### **Restart Game** 
+
+#### User story: As a user, I want to be able to restart the game if I don't like the questions in the category.
+
+* **Plan**  
+The plan was to have a button during the game on which player could click to end the game. 
+This button would take you back to the homepage where you could restart the game. 
+
+* **Implementation**   
+Displayed a button using an a tag. With the use of javascript it triggered upon click to take the user back to the welcome section. 
+
+* **Test**    
+By testing on various devices, I noticed that when you want to click to lowest option on your mobile, 
+by accident I pressed the restart game button sometimes. 
+This is not a good user experience so I decided to add an additional modal.
+When the restart button is clicked, the modal opens and asks if they are sure they want to restart the game.
+Yes will take them back to the welcome section, No will allow them to continue playing the game.
+
+* **Result**    
+By adding the restart-modal, the game can't be restarted by accident which results in a better user experience. 
+The restart button and modal are working as planned across various browsers and devices. 
+
+* **Verdict**    
+The test has passed all the criteria and works like planned.
+
+
+### **Personalised message on end screen**
 
 * **Plan**   
 On the endscreen after completing the game, I wanted to have a personalised message depending on the final score that the user got. 
@@ -348,7 +402,7 @@ The test has passed all the criteria and works like planned.
 
 ## **Bugs**
 
-### Double click on answer
+### **Double click on answer**
 
 * **Bug**  
 When you click on answer and within 1 second you click on another answer, it still validates, goes to the next question and already considers that question answered.   
@@ -361,7 +415,7 @@ When choice is clicked, set accepting answers to false.
 * **Verdict**    
 Only able to answer question once and does not automatically answer question. Bug resolved. 
 
-### Question and answer not showing nicely
+### **Question and answer not showing nicely**
 
 * **Bug**  
 Quotes were not being displaying nicely in the fetched questions and answers.
