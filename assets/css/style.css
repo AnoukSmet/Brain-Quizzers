@@ -85,6 +85,7 @@ body {
     height: 5rem;
     width: 25rem;
     border-radius: 1rem;
+    -webkit-appearance: none;
 }
 
 #category:hover {
@@ -95,7 +96,7 @@ body {
 
 .button-container {
     text-align: center;
-    margin: 1rem 0;
+    margin: 2rem 0;
     background-color: transparent; 
 } 
 
@@ -142,7 +143,7 @@ button#help {
     background-color: #F8F9F8;
     color: #008080;
     border-radius: 2rem;
-    text-align: center;
+    text-align: left;
     padding: 1rem;
     margin: 1rem 1rem;
 }
@@ -328,7 +329,7 @@ button#help {
     /* Endscreen Section */     
 
     #total-score {
-        margin-bottom: 10rem; 
+        margin-bottom: 5rem; 
         font-size: 3rem;
     }
 
