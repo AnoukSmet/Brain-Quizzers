@@ -427,6 +427,18 @@ Updated the innerText to innerHTML in game.js
 Quotes are now showing as they should. Bug fixed.
 
 
+### **Select box for category selection**
+
+* **Bug**  
+The text for the category selection doesn't look nice when testing the website on safari.
+It is aligned on the left instead of centered.  
+
+* **Verdict**  
+After various research I have discovered that the text-align-last is not being supported by safari. 
+[Link to resource](https://www.w3schools.com/cssref/css3_pr_text-align-last.asp)
+For now, I didn't encounter any other possible fix for this issue. 
+
+
 [Back to Top](#table-of-contents)
 
 <a></a>

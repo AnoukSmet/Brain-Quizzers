@@ -82,6 +82,8 @@ body {
     font-size: 2rem;
     margin: 3rem 0;
     text-align-last: center; 
+    text-align: center;
+    -moz-text-align-last: center;
     height: 5rem;
     width: 25rem;
     border-radius: 1rem;
