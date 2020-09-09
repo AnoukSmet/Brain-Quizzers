@@ -85,7 +85,7 @@ body {
     height: 5rem;
     width: 25rem;
     border-radius: 1rem;
-    -webkit-appearance: none;
+    border: 0;
 }
 
 #category:hover {
