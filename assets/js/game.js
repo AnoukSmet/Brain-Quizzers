@@ -14,17 +14,16 @@ const startButtonRef = document.querySelector('#submitCategory');
 const loaderRef = document.querySelector('#loader');
 const errorMessageRef = document.querySelector('#error-message');
 const modalRef = document.querySelector('#help-modal');
-const restartModalRef = document.querySelector('#restart-modal')
+const restartModalRef = document.querySelector('#restart-modal');
 const helpBtnRef = document.querySelector('#help');
 const closeBtnRef = document.querySelector('#close-btn');
-const yesRef = document.querySelector('#yes')
-const noRef = document.querySelector('#no')
 const choices = Array.from(document.querySelectorAll('.choices'));
 const options = Array.from(document.querySelectorAll('.options'));
 const pointsCorrectAnswer = 10;
 const maximumQuestions = 10;
 let questions = [];
 let availableQuestions = [];
+let currentQuestion = {};
 let questionCounter = 0;
 let score = 0;
 let acceptingAnswers = false;
@@ -130,6 +129,7 @@ const getNewQuestion = () => {
         questionCounterRef.innerText = `${(questionCounter / maximumQuestions) * 100 - 10}%`;
         questionCounterRef.style.width = `${(questionCounter / maximumQuestions) * 100 - 10 }%`;
         currentQuestion = availableQuestions[questionIndex];
+        console.log(currentQuestion);
         questionRef.innerHTML = currentQuestion.question;   
  
         choices.forEach((choice) => {
@@ -197,7 +197,6 @@ const validatingAnswers = () => {
                     getNewQuestion();
                 }, 1500);
             } else {
-                const correctAnswerText = currentQuestion['choice' + currentQuestion.answer];
                 const correctAnswerNumber = currentQuestion.answer;
                 const correctAnswer = document.querySelector(`[data-number="${correctAnswerNumber}"]`);
                 clickedChoice.classList.add('incorrect');
@@ -225,9 +224,9 @@ const increaseScore = num => {
 };
 
 /**  
- * Functions to return to homepage when button is clicked 
+ * Function to return to welcome screen when button is clicked 
+ * calls confirmAnswer function
 */ 
-
 
 restartRef.addEventListener("click", () => {
     gameRef.classList.add('hide');
@@ -235,6 +234,11 @@ restartRef.addEventListener("click", () => {
     confirmAnswer();
 });
 
+/** 
+ * Asks the user if they are sure they want to restart game
+ * Yes: returns to welcome screen
+ * No: user can continue playing the game
+*/
 const confirmAnswer = () => {
     options.forEach((option) => {
         option.addEventListener("click", event => {
@@ -251,6 +255,10 @@ const confirmAnswer = () => {
     });
 };
 
+/**
+ * Click Function when Play Again button is clicked
+ * 
+*/
 
 playAgainRef.addEventListener("click", () => {
     gameRef.classList.add('hide');
@@ -258,10 +266,20 @@ playAgainRef.addEventListener("click", () => {
     endscreenRef.classList.add('hide');
 });
 
+/**
+ * Click Function when How to Play button is clicked
+ * Opens the modal with instructions
+*/
+
 helpBtnRef.addEventListener("click", () => {
     welcomeRef.classList.add('hide');
     modalRef.style.display = "inline-block";      
 });
+
+/**
+ * Click function when Ok, I understand button is clicked
+ * Modal closes and welcome screen displays again
+*/
 
 closeBtnRef.addEventListener("click", () => {
     modalRef.style.display ="none";
