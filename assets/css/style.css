@@ -148,6 +148,10 @@ button#help {
     margin: 1rem 1rem;
 }
 
+#restart-modal {
+    text-align: center;
+}
+
 #help-modal-header h3{
     font-size: 3rem;
     text-align: center;
