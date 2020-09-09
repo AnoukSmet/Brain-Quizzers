@@ -13,7 +13,7 @@ const scoreRef = document.querySelector('#score');
 const startButtonRef = document.querySelector('#submitCategory');
 const loaderRef = document.querySelector('#loader');
 const errorMessageRef = document.querySelector('#error-message');
-const modalRef = document.querySelector('#modal');
+const modalRef = document.querySelector('#help-modal');
 const restartModalRef = document.querySelector('#restart-modal')
 const helpBtnRef = document.querySelector('#help');
 const closeBtnRef = document.querySelector('#close-btn');
@@ -235,7 +235,7 @@ restartRef.addEventListener("click", () => {
     confirmAnswer();
 });
 
-confirmAnswer = () => {
+const confirmAnswer = () => {
     options.forEach((option) => {
         option.addEventListener("click", event => {
             const clickedOption = event.target;
@@ -250,7 +250,6 @@ confirmAnswer = () => {
         });
     });
 };
-
 
 
 playAgainRef.addEventListener("click", () => {
